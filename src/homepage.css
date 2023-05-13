@@ -47,22 +47,18 @@
     }
   }
 
-  div.cat {
-    position: relative;
-    height: 100vh;
-  }
-  
   .cat img{
     position: relative;
     margin-top: 20%;
     height: 60vh;
     animation: pulse-once 2s forwards; /* Adjust the duration as per your preference */
     transition: transform 0.3s;
-    /* outline: red solid 3px; */
+    outline: rgb(0, 0, 0) solid 3px;
   }
   .cat:hover {
     transform: scale(1.025);
   }
+
 
 .Typewriter__wrapper {
     font-family: 'Inter', sans-serif;
