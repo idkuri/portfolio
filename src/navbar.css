@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Content:wght@400;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+.navbar {
+    position: relative;
+    top: 25%;
+    right: 3%;
+    font-family: 'Inter', sans-serif;
+    @apply flex justify-end space-x-12 text-white font-bold text-2xl
+}

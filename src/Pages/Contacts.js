@@ -2,7 +2,7 @@ import React from 'react';
 
 function Contacts(props) {
     return (
-        <div>
+        <div className="wrapper">
             <h15>This will be my contacts page</h15>
         </div>
     );
