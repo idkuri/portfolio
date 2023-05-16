@@ -7,7 +7,7 @@ function Navbar(props) {
         <div className='sticky top-0 z-10 h-20 w-full bg-zinc-900'>
             <ul className='navbar'>
                 <Link activeClass='active'
-                    to='homepage'
+                    to='Homepage'
                     spy={true}
                     smooth={true}
                     offset={-70} // Adjust this offset as per your layout
@@ -15,7 +15,7 @@ function Navbar(props) {
                     <li className='cursor-pointer hover:text-purple-600'>About</li>
                 </Link>
                 <Link activeClass='active'
-                    to='skills'
+                    to='Skills'
                     spy={true}
                     smooth={true}
                     offset={-70} // Adjust this offset as per your layout
