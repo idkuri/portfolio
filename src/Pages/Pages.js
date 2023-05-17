@@ -5,48 +5,61 @@ import Projects from './Projects';
 import Contacts from './Contacts';
 import Navbar from '../Components/Navbar';
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
+import background from "../assets/background.png"
 import "../App.css"
 
 function Pages(props) {
+    
     const [scrollEl, setScrollElement] = useState(null);
     const [skillPos, setSkillPos] = useState(0)
     const ref = React.useRef();
 
+    const [isLoading, setLoading] = useState(true);
     useEffect(() => {
         setScrollElement(ref.current)
+        setTimeout(() => {
+            console.log("2 seconds have passed");   
+            setLoading(false);
+        }, 3000)
     })
+    
+    const loadingStr = "<Loading/>..."
 
     function handleProgress(progress) {
         const newLeftPosition = progress * 100
         setSkillPos(newLeftPosition);
     }
+        return (
+            <>
+            <div className='loading_cover' style = {{height: `${isLoading ? "100%": "0%"}`}}>{loadingStr}</div>
+            <ParallaxProvider scrollAxis='vertical' scrollContainer={scrollEl}>
+                <div className='pageContainer' ref={ref}>
+                    <Parallax onExit={() => {console.log("You have exited")}}speed={1}>
+                        <section className="w-screen h-screen" id="homepage">
+                                <Homepage></Homepage>
+                        </section>
+                    </Parallax>
+                    <Parallax onProgressChange={(e) => handleProgress(e)} speed={1}>
+                        <section className="w-screen h-screen" id="skills">
+                                <Skills headerPos={skillPos}></Skills>
+                        </section>
+                    </Parallax>
+                    <Parallax speed={0.5}>
+                        <section className="w-screen h-screen" id="projects">
+                            <Projects></Projects>
+                        </section>
+                    </Parallax>
+                    <Parallax speed={0.5}>
+                        <section className="w-screen h-screen" id="contacts">
+                            <Contacts></Contacts>
+                        </section>
+                    </Parallax>
+                </div>      
+            </ParallaxProvider>    
+            </>                                                                                                                  
+          );
+          
 
-  return (
-    <ParallaxProvider scrollAxis='vertical' scrollContainer={scrollEl}>
-        <div className='pageContainer' ref={ref}>
-            <Parallax onExit={() => {console.log("You have exited")}}speed={1}>
-                <section className="w-screen h-screen" id="homepage">
-                        <Homepage></Homepage>
-                </section>
-            </Parallax>
-            <Parallax onProgressChange={(e) => handleProgress(e)} speed={1}>
-                <section className="w-screen h-screen" id="skills">
-                        <Skills headerPos={skillPos}></Skills>
-                </section>
-            </Parallax>
-            <Parallax speed={0.5}>
-                <section className="w-screen h-screen" id="projects">
-                    <Projects></Projects>
-                </section>
-            </Parallax>
-            <Parallax speed={0.5}>
-                <section className="w-screen h-screen" id="contacts">
-                    <Contacts></Contacts>
-                </section>
-            </Parallax>
-        </div>      
-    </ParallaxProvider>                                                                                                                      
-  );
 }
 
 export default Pages;

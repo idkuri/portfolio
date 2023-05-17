@@ -53,3 +53,21 @@ section#homepage.homepage {
 ::-webkit-scrollbar-thumb:horizontal:hover {
   background-color: #555555;
 }
+
+
+.loading_cover {
+  position: absolute;
+  font-size: 150px;
+  font-family: 'Poppins', 'sans-serif';
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  transition: height 1s ease-in-out;
+  @apply bg-zinc-800
+}

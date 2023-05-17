@@ -7,14 +7,14 @@
         justify-content: center;
         align-items: left;
         margin: 0;
-        padding: 0;
+        padding: 0
         /* outline: blue 5px solid; */
         
     }
 
     .skills-header {
         position: absolute;
-        font-size: 220px;
+        font-size: 150px;
         font-family: 'Poppins', 'sans-serif';
         font-style: italic;
         font-weight: bold;
@@ -64,7 +64,6 @@
     .cover {
         z-index: 1;
         position: absolute;
-        background-color: black;
         /* justify-content: right; */
         right: 0;
         width: 100%;
@@ -127,6 +126,42 @@
     .icon {
         color: white;
         position: relative;
+    }
+
+
+
+
+
+    .icon > .react {
+        transition: transform 0.5s ease-in-out;
+    }
+    .icon > .js {
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .icon > .css3 {
+        transition: transform 0.5s ease-in-out;
+    }
+    .icon > .tailwind {
+        transition: transform 0.5s ease-in-out;
+    }
+    .icon > .nodejs {
+        transition: transform 0.5s ease-in-out;
+    }
+    .icon > .html5 {
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .icon > .python {
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .icon > .java {
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .icon > .php {
+        transition: transform 0.5s ease-in-out;
     }
       
 

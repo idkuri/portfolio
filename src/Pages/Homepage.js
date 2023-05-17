@@ -21,7 +21,6 @@ function Homepage(props) {
                     deleteSpeed: 200,
                 }}
             />
-            <></>
             <div className='social_wrapper'>
                 <FaLinkedinIn className='relative w-10 h-20 text-white hover:text-blue-500' onClick={ ()=> window.open('https://www.linkedin.com/in/acao5/', '_blank')}></FaLinkedinIn>
                 <FaGithub className='relative w-10 h-20 text-white hover:text-black' onClick={()=> window.open('https://github.com/idkuri', '_blank')}></FaGithub>

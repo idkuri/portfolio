@@ -7,7 +7,7 @@ import {IoLogoNodejs} from "react-icons/io"
 function Skills(props) {
     console.log(props.headerPos)
     const str = "<Skills/>"
-    const transformValue = `translateX(${(props.headerPos) / 2}vw)`;
+    const transformValue = `translateX(${1.25 * (props.headerPos) / 2}vw)`;
     
     return (
     <div className="skills-wrapper">
@@ -15,7 +15,7 @@ function Skills(props) {
                     {str}
                 </h1>
             <div className='technologies'>
-                <div className='cover' style = {{width: `${props.headerPos >= 54 ? "0%": <></>}`}}></div>
+                <div className='cover' style = {{width: `${props.headerPos >= 54 ? "0%": "100%"}`}}></div>
                 <div className="icon">
                     <FaReact className='react'>ReactJS</FaReact>
                 </div>
