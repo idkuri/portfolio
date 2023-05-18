@@ -3,6 +3,11 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 .pageContainer {
   position: absolute;
   overflow-y: scroll;
@@ -70,4 +75,10 @@ section#homepage.homepage {
   overflow: hidden;
   transition: height 1s ease-in-out;
   @apply bg-zinc-800
+}
+
+
+img {
+  max-inline-size: 100%;
+  block-size: auto;
 }
