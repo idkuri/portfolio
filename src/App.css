@@ -62,7 +62,6 @@ section#homepage.homepage {
 
 .loading_cover {
   position: absolute;
-  font-size: 150px;
   font-family: 'Poppins', 'sans-serif';
   font-style: italic;
   font-weight: bold;
@@ -74,8 +73,38 @@ section#homepage.homepage {
   height: 100vh;
   overflow: hidden;
   transition: height 1s ease-in-out;
-  /* @apply bg-zinc-800; */
+  @apply bg-zinc-800;
 }
+
+.loading_font {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-size: 70px;
+  text-align: center;
+  font-weight: bold;
+  color: transparent;
+  background-clip: text;
+  background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(133, 133, 133));
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, -70%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+
 
 
 img {

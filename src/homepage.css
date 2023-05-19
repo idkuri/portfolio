@@ -47,7 +47,7 @@
     position: relative;
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    -webkit-text-stroke: 2px black;
+    /* -webkit-text-stroke: 2px black; */
     font-size: calc(32px + 1.8vw);
     color: #ffffff;
     /* outline: red solid 3px;  */

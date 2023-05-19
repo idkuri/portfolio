@@ -108,51 +108,51 @@
 
     .icon:hover > .react {
         /* outline: 5px black solid; */
-        transform: translateY(-100px);
+        transform: translateY(-60px);
         color: #61DBFB;
     }
     .icon:hover > .js {
         /* outline: 5px black solid; */
-        transform: translateY(-100px);
+        transform: translateY(-60px);
         color: #f0db4f;
     }
 
     .icon:hover > .css3 {
         /* outline: 5px black solid; */
-        transform: translateY(-100px);
+        transform: translateY(-60px);
         color: #264de4;
     }
     .icon:hover > .tailwind {
         /* outline: 5px black solid; */
-        transform: translateY(-100px);
+        transform: translateY(-60px);
         color: #4dc0b5;
     }
     .icon:hover > .nodejs {
         /* outline: 5px black solid; */
-        transform: translateY(-100px);
+        transform: translateY(-60px);
         color: #68a063;
     }
     .icon:hover > .html5 {
         /* outline: 5px black solid; */
-        transform: translateY(-100px);
+        transform: translateY(-60px);
         color: #e34c26;
     }
 
     .icon:hover > .python {
         /* outline: 5px black solid; */
-        transform: translateY(-100px);
+        transform: translateY(-60px);
         color: #4b8bbe;
     }
 
     .icon:hover > .java {
         /* outline: 5px black solid; */
-        transform: translateY(-100px);
+        transform: translateY(-60px);
         color: black;
     }
 
     .icon:hover > .php {
         /* outline: 5px black solid; */
-        transform: translateY(-100px);
+        transform: translateY(-60px);
         color: #8993be;
     }
       

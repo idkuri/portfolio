@@ -5,8 +5,8 @@ import {SiTailwindcss} from "react-icons/si"
 import {IoLogoNodejs} from "react-icons/io"
 
 function Skills(props) {
-    // console.log(props.headerPos)
-    const str = "<Skills/>"
+    console.log(props.headerPos)
+    const str = "</Skills>"
     const transformValue = `translateX(${1.25 * (props.headerPos) / 2}vw)`;
     
     return (

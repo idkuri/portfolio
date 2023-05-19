@@ -22,4 +22,5 @@ git push origin
 # Step 7: Go back to the main repository's root directory
 cd ..
 
+read "hi"
 echo "Script execution completed!"
