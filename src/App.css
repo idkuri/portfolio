@@ -72,7 +72,7 @@ section#homepage.homepage {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  transition: height 1s ease-in-out;
+  transition: transform 1s ease-in-out;
   @apply bg-zinc-800;
 }
 
@@ -83,13 +83,14 @@ section#homepage.homepage {
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
-  font-size: 70px;
+  font-size: calc(33px + 2vw);
   text-align: center;
   font-weight: bold;
   color: transparent;
   background-clip: text;
   background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(133, 133, 133));
   animation: bounce 1s infinite;
+  white-space: pre-wrap;
 }
 
 @keyframes bounce {
@@ -105,6 +106,37 @@ section#homepage.homepage {
 }
 
 
+.spinner {
+  position: absolute;
+  font-size: 55px;
+  top: 80%;
+  left: calc(100vw/2 - 1.5%);
+  animation: spin 1s infinite;
+  color: white;
+  
+}
+
+@media (max-width: 480px) {
+  .spinner {
+    position: absolute;
+    font-size: 55px;
+    top: 80%;
+    left: calc(100vw/2 - 8%);
+    animation: spin 1s infinite;
+    color: white;
+    
+  }
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
 
 
 img {

@@ -8,6 +8,7 @@ import Projects from './Projects';
 import Navbar from '../Components/Navbar';
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
 import background from "../assets/background.png"
+import {ImSpinner8} from "react-icons/im"
 import "../App.css"
 
 function Pages(props) {
@@ -25,7 +26,7 @@ function Pages(props) {
         }, 2000)
     })
     
-    const loadingStr = "Hi there! ( • ᴗ - ) ✧"
+    const loadingStr = "Hi there!  ( • ᴗ - ) ✧"
 
     function handleProgress(progress) {
         const newLeftPosition = progress * 100
@@ -33,7 +34,11 @@ function Pages(props) {
     }
         return (
             <>
-            <div className='loading_cover' style = {{height: `${isLoading ? "100%": "0%"}`}}><p className='loading_font'>{loadingStr}</p></div>
+            <div className='loading_cover' style={{ transform: `translateY(${isLoading ? "0%" : "-100%"})` }}>
+                <p className='loading_font'>{loadingStr}</p>
+                <ImSpinner8 className='spinner'></ImSpinner8>
+                
+            </div>
             <ParallaxProvider scrollAxis='vertical' scrollContainer={scrollEl}>
                 <div className='pageContainer' ref={ref}>
                     <Parallax onExit={() => {console.log("You have exited")}}speed={100}>
