@@ -98,8 +98,8 @@
         z-index: 1;
         position: absolute;
         /* justify-content: right; */
-        right: 0;
-        width: 100%;
+        right: -10%;
+        width: 100vw;
         height: 73%;
         transition: width 1s ease-in 0s;
         @apply bg-zinc-800

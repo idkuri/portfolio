@@ -1,6 +1,11 @@
 #!/bin/bash
 
+<<<<<<< Updated upstream
 cd "C:\Users\Kuri\Desktop\Portfolio"
+=======
+cd "C:\Users\Kuri\Desktop\Portfolio\portfolio"
+# Step 1: Run npm run build
+>>>>>>> Stashed changes
 npm run build
 git fetch --recurse-submodules
 git submodule update --remote

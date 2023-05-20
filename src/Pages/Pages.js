@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import Homepage from './Homepage';
 import Skills from './Skills';
 import MyLyfe from './projects/MyLyfe';
@@ -34,21 +34,21 @@ function Pages(props) {
     }
         return (
             <>
+<<<<<<< Updated upstream
             <div className='loading_cover' style={{ transform: `translateY(${isLoading ? "0%" : "-100%"})` }}>
                 <p className='loading_font'>{loadingStr}</p>
                 <ImSpinner8 className='spinner'></ImSpinner8>
                 
             </div>
             <ParallaxProvider scrollAxis='vertical' scrollContainer={scrollEl}>
+=======
+            {/* <div className='loading_cover' style = {{height: `${isLoading ? "100%": "0%"}`}}><p className='loading_font'>{loadingStr}</p></div> */}
+            <ParallaxProvider scrollAxis='vertical' scrollContainer={scrollEl} scrollToTopOnMount>
+>>>>>>> Stashed changes
                 <div className='pageContainer' ref={ref}>
                     <Parallax onExit={() => {console.log("You have exited")}}speed={100}>
                         <section className="relative h-screen w-screen" id="homepage">
                                 <Homepage></Homepage>
-                        </section>
-                    </Parallax>
-                    <Parallax speed={1}>
-                        <section className="w-screen h-screen outline-dashed outline-red-500 outline-0" id="projects">
-                            <Projects></Projects>
                         </section>
                     </Parallax>
                     <Parallax onProgressChange={(e) => handleProgress(e)} speed={1}>
@@ -56,11 +56,16 @@ function Pages(props) {
                                 <Skills headerPos={skillPos}></Skills>
                         </section>
                     </Parallax>
-                    <Parallax speed={0.5}>
+                    <Parallax speed={1}>
+                        <section className="w-screen h-screen outline-dashed outline-red-500 outline-0" id="projects">
+                            <Projects></Projects>
+                        </section>
+                    </Parallax>
+                    {/* <Parallax speed={0.5}>
                         <section className="w-screen h-screen" id="contacts">
                             <Contacts></Contacts>
                         </section>
-                    </Parallax>
+                    </Parallax> */}
                 </div>      
             </ParallaxProvider>    
             </>                                                                                                                  
