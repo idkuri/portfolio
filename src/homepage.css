@@ -145,7 +145,7 @@
     /* outline: red 3px solid;  */
     @apply space-x-10;
     /* background-color: #ffffff; */
-    animation: appear 1s ease-in both 4s;
+    animation: appear 1s ease-in both 2.5s;
 }
 
 

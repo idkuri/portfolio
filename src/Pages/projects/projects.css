@@ -118,7 +118,7 @@
     left: 0;
     position: absolute;
     font-size: 50px;
-    font-size: calc(2px + 2.5vw);
+    font-size: calc(25px + 2vw);
     font-weight: bold;
     font-family: 'Poppins', 'sans-serif';
     color: rgb(255, 255, 255);

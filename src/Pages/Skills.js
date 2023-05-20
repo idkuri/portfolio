@@ -3,10 +3,9 @@ import '../skills.css'
 import {FaReact, FaJsSquare, FaPython, FaHtml5, FaCss3Alt, FaJava, FaPhp} from "react-icons/fa"
 import {SiTailwindcss} from "react-icons/si"
 import {IoLogoNodejs} from "react-icons/io"
-import Resume from "../assets/Resume.pdf"
 
 function Skills(props) {
-    console.log(props.headerPos)
+    // console.log(props.headerPos)
     const str = "I speak:"
     const transformValue = `translateX(${1.25 * (props.headerPos) / 2}vw)`;
     
@@ -45,9 +44,9 @@ function Skills(props) {
                     <FaPhp className='php'>PHP</FaPhp>
                 </div>
             </div>
-            <button onClick={() => {window.open({Resume}, '_blank');}}>
-                View Resume
-            </button>
+            {props.headerPos >= 40 ? (<button className="resume" onClick={() => {window.open("https://drive.google.com/file/d/1TiuqYuiBiD6HX0kNNnUoDahcNnhW42We/view", '_blank');}}>
+                Resume
+            </button>): (<></>)}
     </div>
     );
 }
