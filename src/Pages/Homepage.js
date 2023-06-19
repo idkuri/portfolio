@@ -8,10 +8,11 @@ import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { FiMail } from "react-icons/fi"
 
 function Homepage(props) {
-    const myName = "</Kuri>"
+    const myName = "</Andrew>"
     return (
         <div className="home-wrapper">
-            <h1 className="name">{myName}</h1>
+                <h1 className='name' id="intro">Hi, I'm</h1>
+            <h1 className="name" id="me">{myName}</h1>
             <Typewriter className="typewriter"
                 options={{
                     strings: ["Student", "Front-end Developer","Anime Fan"],

@@ -5,8 +5,8 @@ import {SiTailwindcss} from "react-icons/si"
 import {IoLogoNodejs} from "react-icons/io"
 
 function Skills(props) {
-    console.log(props.headerPos)
-    const str = "</Skills>"
+    // console.log(props.headerPos)
+    const str = "I speak:"
     const transformValue = `translateX(${1.25 * (props.headerPos) / 2}vw)`;
     
     return (
@@ -15,7 +15,7 @@ function Skills(props) {
                     {str}
                 </h1>
             <div className='technologies'>
-                <div className='cover' style = {{width: `${props.headerPos >= 40 ? "0%": "100%"}`}}></div>
+                <div className='cover' style = {{width: `${props.headerPos >= 40 ? "0%": "110vw"}`}}></div>
                 <div className="icon">
                     <FaReact className='react'>ReactJS</FaReact>
                 </div>
@@ -44,6 +44,9 @@ function Skills(props) {
                     <FaPhp className='php'>PHP</FaPhp>
                 </div>
             </div>
+            {props.headerPos >= 40 ? (<button className="resume" onClick={() => {window.open("https://drive.google.com/file/d/1TiuqYuiBiD6HX0kNNnUoDahcNnhW42We/view", '_blank');}}>
+                Resume
+            </button>): (<></>)}
     </div>
     );
 }

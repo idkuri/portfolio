@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd "C:\Users\Kuri\Desktop\Portfolio"
+cd "C:\Users\Kuri\Desktop\Portfolio\portfolio"
 npm run build
 git fetch --recurse-submodules
 git submodule update --remote
