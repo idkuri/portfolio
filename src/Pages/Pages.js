@@ -34,11 +34,10 @@ function Pages(props) {
     }
         return (
             <>
-            <div className='loading_cover' style={{ transform: `translateY(${isLoading ? "0%" : "-100%"})` }}>
+            {/* <div className='loading_cover' style={{ transform: `translateY(${isLoading ? "0%" : "-100%"})` }}>
                 <p className='loading_font'>{loadingStr}</p>
-                <ImSpinner8 className='spinner'></ImSpinner8>
-                
-            </div>
+                <ImSpinner8 className='spinner'></ImSpinner8>    
+            </div> */}
             <ParallaxProvider scrollAxis='vertical' scrollContainer={scrollEl}>
                 <div className='pageContainer' ref={ref}>
                     <Parallax onExit={() => {console.log("You have exited")}}speed={100}>
