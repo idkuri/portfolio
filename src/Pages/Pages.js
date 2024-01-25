@@ -42,11 +42,6 @@ function Pages(props) {
             <>
             {/* <div className='loading_cover' style = {{height: `${isLoading ? "100%": "0%"}`}}><p className='loading_font'>{loadingStr}</p></div> */}
             <ParallaxProvider scrollAxis='vertical' scrollContainer={scrollEl} scrollToTopOnMount>
-            {/* <div className='loading_cover' style={{ transform: `translateY(${isLoading ? "0%" : "-100%"})` }}>
-                <p className='loading_font'>{loadingStr}</p>
-                <ImSpinner8 className='spinner'></ImSpinner8>    
-            </div> */}
-            <ParallaxProvider scrollAxis='vertical' scrollContainer={scrollEl}>
                 <div className='pageContainer' ref={ref}>
                     <Parallax onExit={() => {console.log("You have exited")}}speed={100}>
                         <section className="relative h-screen w-screen" id="homepage">
