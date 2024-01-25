@@ -2,7 +2,7 @@ import {useState} from 'react';
 import MyLyfe from './projects/MyLyfe';
 import TeamChess from './projects/TeamChess';
 import Reversi from './projects/Reversi';
-import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import SnapTranslate from './projects/SnapTranslate';
 import "./projects/projects.css"
 
 const Projects = () => {
@@ -10,7 +10,8 @@ const Projects = () => {
     const items = {
         0: <MyLyfe></MyLyfe>,
         1: <TeamChess></TeamChess>,
-        2: <Reversi></Reversi>
+        2: <Reversi></Reversi>,
+        3: <SnapTranslate></SnapTranslate>
     }
 
     const projstr = "</Projects>"
