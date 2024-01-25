@@ -58,11 +58,11 @@ function Pages(props) {
                             <Projects></Projects>
                         </section>
                     </Parallax>
-                    <Parallax onProgressChange={(e) => abouthandleProgress(e)} speed={0.5}>
+                    {/* <Parallax onProgressChange={(e) => abouthandleProgress(e)} speed={0.5}>
                         <section className="w-screen h-screen" id="aboutme">
                             <AboutMe headerPos={aboutPos}></AboutMe>
                         </section>
-                    </Parallax>
+                    </Parallax> */}
                 </div>      
             </ParallaxProvider>    
             </>                                                                                                                  
