@@ -116,7 +116,7 @@
     padding-top: 6%;
     margin-left: 2%;
     left: 0;
-    position: absolute;
+    position: relative;
     font-size: 50px;
     font-size: calc(25px + 2vw);
     font-weight: bold;

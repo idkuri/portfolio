@@ -17,12 +17,14 @@ const Projects = () => {
     const projstr = "</Projects>"
 
     return (
-        <div className='flex w-screen h-screen flex-row gap-20 justify-center items-center'>
+        <div className='flex w-screen h-screen flex-col gap-20 pb-1'>
             <h1 className='p_header'>{projstr}</h1>
-            <MyLyfe></MyLyfe>
-            <TeamChess></TeamChess>
-            {/* <AiOutlineLeft className='left-button' onClick={() => {setSelector(selector - 1 < 0 ? 1 : selector - 1)}}></AiOutlineLeft>
-            <AiOutlineRight className='right-button' onClick={() => {setSelector(selector + 1 > 1 ? 0 : selector + 1)}}></AiOutlineRight> */}
+            <div className='flex w-screen h-screen pl-8 pr-8 pb-8 flex-row gap-20 justify-center items-center'>
+                <MyLyfe></MyLyfe>
+                <TeamChess></TeamChess>
+                {/* <AiOutlineLeft className='left-button' onClick={() => {setSelector(selector - 1 < 0 ? 1 : selector - 1)}}></AiOutlineLeft>
+                <AiOutlineRight className='right-button' onClick={() => {setSelector(selector + 1 > 1 ? 0 : selector + 1)}}></AiOutlineRight> */}
+            </div>
         </div>
     );
 };
