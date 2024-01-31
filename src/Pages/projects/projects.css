@@ -45,10 +45,11 @@
 
 .project_elem {
     position:relative;
-    width: 700px;
-    height: 500px;
+    min-width: 60vmin;
+    min-height: 60vmin;
     outline: 3px rgb(75, 0, 91, 0.3) solid;
     /* background-color: rgb(82, 82, 82); */
+    object-fit: cover;
     border-radius: 25px;
     overflow: hidden;
     z-index: 1;
@@ -56,6 +57,7 @@
     box-shadow: 0 0px 25px  rgba(4, 4, 4, 0.3);
     /* @apply outline-gradient-to-r from-purple-400 to-pink-200; */
     cursor: pointer;
+    object-position: center;
 }
 
 .background {
