@@ -27,6 +27,7 @@
         left: 5%;
         -webkit-background-clip: text; 
         transition: transform 0.5s ease-out 0s;
+        color: white;
     }
 
     @media (max-width: 767px) {

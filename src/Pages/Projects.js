@@ -11,15 +11,15 @@ const Projects = () => {
         0: <MyLyfe></MyLyfe>,
         1: <TeamChess></TeamChess>,
         2: <Reversi></Reversi>,
-        3: <SnapTranslate></SnapTranslate>
     }
 
-    const projstr = "</Projects>"
+
+
 
     return (
-        <div className='flex w-screen h-screen flex-col gap-20 pb-1'>
-            <h1 className='p_header'>{projstr}</h1>
-            <div className='flex w-screen h-screen pl-8 pr-8 pb-8 flex-row gap-5 justify-center items-center'>
+        <div className='flex w-screen h-screen flex-row gap-20 pb-1'>
+            <h1 className='p_header'>{`<Projects>`}</h1>
+            <div className='carousel'>
                 <MyLyfe/>
                 <TeamChess/>
             </div>

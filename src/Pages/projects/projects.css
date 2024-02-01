@@ -60,6 +60,22 @@
     object-position: center;
 }
 
+/* @keyframes carousel {
+    0% { 
+        transform: translateX(0);
+    }
+    100% { 
+        transform: translateX(calc(-250px * 7));
+    }
+    
+} */
+
+.carousel {
+    /* animation: carousel 40s linear infinite; */
+    left: 0;
+    @apply flex w-screen h-screen pl-8 pr-8 pb-8 flex-row gap-5 justify-center items-center;
+}
+
 .background {
     filter: blur(10px);
     z-index: -1;
@@ -115,9 +131,10 @@
 
 .p_header {
     top: 0;
-    padding-top: 6%;
+    padding-top: 0%;
     margin-left: 2%;
     left: 0;
+    width: 100%;
     position: relative;
     font-size: 50px;
     font-size: calc(25px + 2vw);
