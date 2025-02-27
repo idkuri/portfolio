@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import "../homepage.css"
+import "../styles/homepage.css"
 import cat from "../assets/cat.svg"
 import Typewriter from 'typewriter-effect';
-import Projects from './projects/MyLyfe';
 import Contacts from './Contacts';
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { FiMail } from "react-icons/fi"
@@ -15,7 +14,7 @@ function Homepage(props) {
             <h1 className="name" id="me">{myName}</h1>
             <Typewriter className="typewriter"
                 options={{
-                    strings: ["Student", "Fullstack Developer","Anime Fan"],
+                    strings: ["Student", "Fullstack Developer"],
                     autoStart: true,
                     loop: true,
                     skipAddStyles: true,

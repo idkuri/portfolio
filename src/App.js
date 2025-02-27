@@ -1,11 +1,31 @@
+import { useEffect } from 'react';
 import Homepage from './Pages/Homepage';
 import Contacts from './Pages/Contacts';
 import Pages from './Pages/Pages';
 import Navbar from './Components/Navbar';
 import { Route, Routes } from 'react-router-dom';
-import './App.css';
+import './styles/App.css';
 
 function App() {
+
+  // Disable Ctrl + Scroll
+  useEffect(() => {
+    const handleWheel = (event) => {
+      // Check if Ctrl or Cmd key is pressed
+      if (event.ctrlKey || event.metaKey) {
+        // Prevent the default zooming behavior
+        event.preventDefault();
+      }
+    };
+
+    // Add event listener to the window
+    window.addEventListener('wheel', handleWheel, { passive: false });
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+    };
+  }, []);
   return (
     <>
       <Routes>

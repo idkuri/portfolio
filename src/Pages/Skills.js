@@ -1,5 +1,5 @@
 import React from 'react';
-import '../skills.css'
+import '../styles/skills.css'
 import {FaReact, FaJsSquare, FaPython, FaHtml5, FaCss3Alt, FaJava, FaPhp} from "react-icons/fa"
 import {SiTailwindcss} from "react-icons/si"
 import {IoLogoNodejs} from "react-icons/io"

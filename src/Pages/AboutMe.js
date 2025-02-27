@@ -1,5 +1,5 @@
 import React from 'react';
-import "../aboutme.css"
+import "../styles/aboutme.css"
 
 const AboutMe = (props) => {
     console.log(props.headerPos)

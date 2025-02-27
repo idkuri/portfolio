@@ -1,9 +1,9 @@
 import React from 'react';
-import myLyfe from "../../assets/myLyfe.png"
-import "./projects.css"
-import mygoals from "../../assets/mygoals.png"
+import myLyfe from "../assets/myLyfe.png"
+import "../styles/projects.css"
+import mygoals from "../assets/mygoals.png"
 
-function MyLyfe(props) {
+function ProjectComponent(props) {
     const num = "01"
     return (
         <div className="project_elem" onClick={() => {window.open('https://webdev.cse.buffalo.edu/hci/teams/aquafit/', "__blank")}}>
@@ -19,4 +19,4 @@ function MyLyfe(props) {
     );
 }
 
-export default MyLyfe;
+export default ProjectComponent;
