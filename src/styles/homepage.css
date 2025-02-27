@@ -3,11 +3,6 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;0,800;1,600;1,700;1,800;1,900&display=swap');
 
-:root {
-    touch-action: pan-x pan-y;
-    height: 100% 
-}
-
 .home-wrapper {
     /* outline: rgb(0, 169, 241) 2px solid ; */
     width: 100vw;

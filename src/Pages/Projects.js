@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import "../styles/projects.css"
 import ProjectComponent from '../Components/ProjectComponent';
+import { SiCoursera } from 'react-icons/si';
 
 const Projects = () => {
     const [selector, setSelector] = useState(0);
@@ -36,11 +37,49 @@ const Projects = () => {
         return project_array
     }
 
+    const handleMouseDown = (e) => {
+        const carousel = document.getElementById("carousel");
+        carousel.dataset.mouseDownAt = e.clientX
+        window.addEventListener('mousemove', handleMouseMove)
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove)
+        }
+    }
+
+    const handleMouseUp = (e) => {
+        const carousel = document.getElementById("carousel");
+        carousel.dataset.mouseDownAt = "0";
+        carousel.dataset.prevPercentage = carousel.dataset.percentage;
+    }
+    
+    
+
+    const handleMouseMove = (e) => {
+        const carousel = document.getElementById("carousel");
+        if (carousel.dataset.mouseDownAt == "0") return;
+        const mouseDelta = parseFloat(carousel.dataset.mouseDownAt) - e.clientX;
+        const maxDelta = window.innerWidth / 2;
+
+        const percentage = ((mouseDelta / maxDelta) * 100);
+        const nextPercentage = percentage + parseFloat(carousel.dataset.prevPercentage);
+        let calculateMargin = 50 - nextPercentage
+        if (calculateMargin <= -100) {
+            calculateMargin = -100
+
+        }
+        else if (calculateMargin >= 50) {
+            calculateMargin = 50
+        }
+        carousel.dataset.percentage = nextPercentage;
+        carousel.style.marginLeft = `${calculateMargin}%`;
+
+    }
+
 
     return (
-        <div className='flex w-screen h-screen flex-col gap-20 outline outline-2 outline-blue-500 outline-offset-4'>
+        <div className='flex w-screen h-screen flex-col gap-20 outline outline-2 outline-blue-500 outline-offset-4' onMouseDown={(e) => {handleMouseDown(e)}} onMouseUp={(e) => {handleMouseUp(e)}}>
             <h1 className='p_header flex-row gap-20 outline outline-2 outline-blue-500 outline-offset-4'>{`<Projects>`}</h1>
-            <div className='carousel outline outline-2 outline-red-500 outline-offset-4' >
+            <div className='carousel outline outline-2 outline-red-500 outline-offset-4' id="carousel" data-mouse-down-at="0" data-prev-percentage="0">
                 {renderProjects()}
             </div>
         </div>

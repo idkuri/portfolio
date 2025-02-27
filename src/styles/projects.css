@@ -40,7 +40,7 @@
     min-width: 230px;
     outline: 3px rgb(75, 0, 91, 0.3) solid;
     object-fit: cover;
-    border-radius: 25px;
+    /* border-radius: 25px; */
     overflow: hidden;
     z-index: 1;
     top: 0;
@@ -48,6 +48,7 @@
     box-shadow: 0 0px 25px  rgba(4, 4, 4, 0.3);
     cursor: pointer;
     object-position: center;
+    user-select: none;
 }
 
 @keyframes carousel {
@@ -61,9 +62,9 @@
 }
 
 .carousel {
-    animation: carousel 40s linear infinite;
+    /* animation: carousel 10s linear infinite; */
     height: 56vmin;
-    left: 0;
+    margin-left: 50%;
     top: 0;
     @apply flex flex-row gap-5 justify-center items-center outline outline-2 outline-purple-500 outline-offset-4;
 }
@@ -99,6 +100,7 @@
     font-family: 'Poppins', 'sans-serif';
     color: rgb(255, 255, 255);
     opacity: 0.5;
+    user-select: none;
 }
 
 
