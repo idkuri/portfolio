@@ -24,6 +24,23 @@ function Pages(props) {
             setLoading(false);
         }, 2000)
     })
+
+
+    useEffect(() => {
+        document.addEventListener("mouseup", handleMouseUp);
+    
+        // Clean up the global mouseup listener on unmount
+        return () => {
+          document.removeEventListener("mouseup", handleMouseUp);
+        };
+      }, []);
+
+
+    const handleMouseUp = () => {
+        const carousel = document.getElementById("carousel");
+        carousel.dataset.mouseDownAt = "0";
+        carousel.dataset.prevPercentage = carousel.dataset.percentage;
+    };
     
     const loadingStr = "Hi there!  ( • ᴗ - ) ✧"
 
@@ -37,11 +54,12 @@ function Pages(props) {
     }
         return (
             <>
+            <Navbar/>
             {/* <div className='loading_cover' style = {{height: `${isLoading ? "100%": "0%"}`}}><p className='loading_font'>{loadingStr}</p></div> */}
             <ParallaxProvider scrollAxis='vertical' scrollContainer={scrollEl} scrollToTopOnMount>
                 <div className='pageContainer' ref={ref}>
                     <Parallax speed={100}>
-                        <section className="relative h-screen w-screen" id="homepage">
+                        <section id="homepage" className="relative h-screen w-screen">
                                 <Homepage></Homepage>
                         </section>
                     </Parallax>
@@ -51,7 +69,7 @@ function Pages(props) {
                         </section>
                     </Parallax>
                     <Parallax speed={1}>
-                        <section className="w-screen h-screen outline outline-2 outline-blue-500 outline-offset-4" id="projects">
+                        <section id="projects" className="w-screen h-screen">
                                 <Projects></Projects>
                         </section>
                     </Parallax>

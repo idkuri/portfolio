@@ -3,6 +3,7 @@ import Homepage from './Pages/Homepage';
 import Contacts from './Pages/Contacts';
 import Pages from './Pages/Pages';
 import Navbar from './Components/Navbar';
+import Projects from './Pages/Projects';
 import { Route, Routes } from 'react-router-dom';
 import './styles/App.css';
 
@@ -30,6 +31,7 @@ function App() {
     <>
       <Routes>
         <Route path ="/" element={<Pages/>}/>
+        <Route path ="/projects" element={<Projects/>}/>
       </Routes>
     </>
   );

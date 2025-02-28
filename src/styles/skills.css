@@ -17,33 +17,16 @@
 
     .skills-header {
         position: relative;
-        font-size: calc(50px + 4vw);
+        font-size: calc(25px + 2vw);
         font-family: "Poppins", "sans-serif";
         font-style: italic;
         font-weight: bold;
         text-align: center;
         margin-right: auto;
-        opacity: 0.5;
-        left: 5%;
+        left: 11.5%;
         -webkit-background-clip: text; 
         transition: transform 0.5s ease-out 0s;
-        color: white;
-    }
-
-    @media (max-width: 767px) {
-        .skills-header {
-            position: relative;
-            font-size: calc(50px + 4vw);
-            font-family: 'Poppins', 'sans-serif';
-            /* font-style: italic; */
-            font-weight: bold;
-            text-align: center;
-            margin-right: auto;
-            opacity: 0.5;
-            left: -13.5%;
-            -webkit-background-clip: text; 
-            transition: transform 0.5s ease-out 0s;
-        }
+        color: rgb(255, 255, 255);
     }
       
 
@@ -67,16 +50,15 @@
     @media (max-width: 767px) {
         .skills-header {
             position: relative;
-            font-size: calc(50px + 4vw);
+            font-size: calc(25px + 4vw);
             font-family: 'Poppins', 'sans-serif';
             font-style: italic;
             font-weight: bold;
             text-align: center;
             margin-right: auto;
-            opacity: 0.5;
-            left: -13.5%;
-            -webkit-background-clip: text; 
-            transition: transform 0.5s ease-out 1s;
+            left: -3.5%;
+            color: rgb(255, 255, 255);
+            transition: transform 0.5s ease-out;
         }
 
         .technologies {
@@ -105,7 +87,7 @@
         width: 100vw;
         height: 73%;
         transition: width 1s ease-in 0s;
-        @apply bg-zinc-800
+        background-color: black;
     }
 
 
@@ -150,7 +132,7 @@
     .icon:hover > .java {
         /* outline: 5px black solid; */
         transform: translateY(-60px);
-        color: black;
+        color: rgb(97, 97, 97);
     }
 
     .icon:hover > .php {
@@ -214,7 +196,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 5%;
-    animation: appear 3s both;
+    animation: appear 1s both;
 }
 
 .resume:hover {
