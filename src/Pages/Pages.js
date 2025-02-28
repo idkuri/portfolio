@@ -13,27 +13,38 @@ function Pages(props) {
     
     const [scrollEl, setScrollElement] = useState(null);
     const [skillPos, setSkillPos] = useState(0);
-    const [aboutPos, setAboutPos] = useState(0);
+    const [projectPos, setProjectPos] = useState(0);
     const ref = React.useRef();
 
     const [isLoading, setLoading] = useState(true);
     useEffect(() => {
         setScrollElement(ref.current)
-        setTimeout(() => {
-            // console.log("2 seconds have passed");   
-            setLoading(false);
-        }, 2000)
+        // setTimeout(() => {
+        //     // console.log("2 seconds have passed");   
+        //     setLoading(false);
+        // }, 2000)
     })
 
 
+    const scrollToTop = () => {
+        const homepageSection = document.getElementById('homepage');
+        if (homepageSection) {
+            homepageSection.scrollIntoView({
+            behavior: 'auto',
+            })
+        };
+    }
+
+
     useEffect(() => {
+        scrollToTop();
         document.addEventListener("mouseup", handleMouseUp);
     
         // Clean up the global mouseup listener on unmount
         return () => {
           document.removeEventListener("mouseup", handleMouseUp);
         };
-      }, []);
+    }, []);
 
 
     const handleMouseUp = () => {
@@ -44,13 +55,13 @@ function Pages(props) {
     
     const loadingStr = "Hi there!  ( • ᴗ - ) ✧"
 
-    function handleProgress(progress) {
+    function handleSkillProgress(progress) {
         const newLeftPosition = progress * 100
         setSkillPos(newLeftPosition);
     }
-    function abouthandleProgress(progress) {
+    function handleProjectProgress(progress) {
         const newLeftPosition = progress * 100
-        setAboutPos(newLeftPosition);
+        setProjectPos(newLeftPosition);
     }
         return (
             <>
@@ -60,17 +71,17 @@ function Pages(props) {
                 <div className='pageContainer' ref={ref}>
                     <Parallax speed={100}>
                         <section id="homepage" className="relative h-screen w-screen">
-                                <Homepage></Homepage>
+                                <Homepage/>
                         </section>
                     </Parallax>
-                    <Parallax onProgressChange={(e) => handleProgress(e)} speed={20}>
+                    <Parallax onProgressChange={(e) => handleSkillProgress(e)} speed={20}>
                         <section className="w-screen h-screen" id="skills">
-                                <Skills headerPos={skillPos}></Skills>
+                                <Skills headerPos={skillPos}/>
                         </section>
                     </Parallax>
-                    <Parallax speed={1}>
+                    <Parallax onProgressChange={(e) => handleProjectProgress(e)} speed={1}>
                         <section id="projects" className="w-screen h-screen">
-                                <Projects></Projects>
+                                <Projects projectPos={projectPos}/>
                         </section>
                     </Parallax>
                     {/* <Parallax onProgressChange={(e) => abouthandleProgress(e)} speed={0.5}>
