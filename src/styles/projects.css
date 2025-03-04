@@ -74,7 +74,6 @@
         transform: translate(50%, -50%);
         will-change: transform;
         @apply flex flex-row gap-5 justify-center;
-        outline: 2px solid red;
     }
     .project_elem {
         position: relative;
