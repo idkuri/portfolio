@@ -20,7 +20,7 @@ const Projects = (props) => {
         const projectElemWidth = document.getElementsByClassName("project_elem")[0]?.clientWidth / 2;
         
         if (!carousel || !projectElemWidth) return;
-        const maxDelta = 1.25 * window.innerWidth;
+        const maxDelta = carousel.clientWidth;
         const projectElemWidthToPercentage = (projectElemWidth / maxDelta) * 100;
     
         const initialPercentage = 50 - projectElemWidthToPercentage;
@@ -62,7 +62,7 @@ const Projects = (props) => {
     const moveCarouselNoAnimation = (distance) => {
         const carousel = document.getElementById("carousel");
         const project_elem_width = document.getElementsByClassName("project_elem")[0].clientWidth / 2
-        const maxDelta = 1.25 * window.innerWidth;
+        const maxDelta = carousel.clientWidth;
         const project_elem_width_to_percentage = (project_elem_width / maxDelta) * 100
 
         const percentage = distance
@@ -97,7 +97,7 @@ const Projects = (props) => {
     const moveCarousel = (distance) => {
         const carousel = document.getElementById("carousel");
         const project_elem_width = document.getElementsByClassName("project_elem")[0].clientWidth / 2
-        const maxDelta = 1.25 * window.innerWidth;
+        const maxDelta = carousel.clientWidth;
         const project_elem_width_to_percentage = (project_elem_width / maxDelta) * 100
 
         const percentage = distance
@@ -146,6 +146,11 @@ const Projects = (props) => {
         carousel.dataset.mouseDownAt = e.clientX
     }
 
+    const handleTouchStart = (e) => {
+        const carousel = document.getElementById("carousel");
+        carousel.dataset.mouseDownAt = e.touches[0].clientX
+    }
+
     const handleMouseUp = (e) => {
         const carousel = document.getElementById("carousel");
         carousel.dataset.mouseDownAt = "0";
@@ -159,7 +164,44 @@ const Projects = (props) => {
         const project_elem_width = document.getElementsByClassName("project_elem")[0].clientWidth / 2
         if (carousel.dataset.mouseDownAt == "0") return;
         const mouseDelta = parseFloat(carousel.dataset.mouseDownAt) - e.clientX;
-        const maxDelta = 1.25 * window.innerWidth;
+        const maxDelta = carousel.clientWidth;
+        const project_elem_width_to_percentage = (project_elem_width / maxDelta) * 100
+
+        const percentage = -((mouseDelta / maxDelta) * 100);
+        let prevPercentage = parseFloat(carousel.dataset.prevPercentage)
+        // console.log(prevPercentage)
+        if (isNaN(prevPercentage)) {
+            prevPercentage = 50 - project_elem_width_to_percentage
+        }
+        
+        let nextPercentage = percentage + prevPercentage;
+        if (nextPercentage > 50 - project_elem_width_to_percentage) {
+            nextPercentage = 50 - project_elem_width_to_percentage
+
+        }
+        else if (nextPercentage < -50 + project_elem_width_to_percentage) {
+            nextPercentage = -50 + project_elem_width_to_percentage
+        }
+
+        for (const image of carousel.getElementsByClassName("project_background")) {
+            image.animate({
+                objectPosition: `${nextPercentage + 50}% 50%`
+            }, {duration: 1200, fill: "forwards"})
+        }
+        // console.log(calculateMargin)
+        carousel.dataset.percentage = nextPercentage;
+        carousel.animate( {
+            transform: `translate(${nextPercentage}%, 0%)`
+        }, {duration: 1200, fill: "forwards"})
+        // console.log(nextPercentage)
+    }
+
+    const handleTouchMove = (e) => {
+        const carousel = document.getElementById("carousel");
+        const project_elem_width = document.getElementsByClassName("project_elem")[0].clientWidth / 2
+        if (carousel.dataset.mouseDownAt == "0") return;
+        const mouseDelta = parseFloat(carousel.dataset.mouseDownAt) - e.touches[0].clientX;
+        const maxDelta = carousel.clientWidth;
         const project_elem_width_to_percentage = (project_elem_width / maxDelta) * 100
 
         const percentage = -((mouseDelta / maxDelta) * 100);
@@ -193,7 +235,13 @@ const Projects = (props) => {
 
 
     return (
-        <div className='projects_page' onMouseMove={(e) => handleMouseMove(e)}onMouseDown={(e) => {handleMouseDown(e)}} onMouseUp={(e) => {handleMouseUp(e)}}>
+        <div className='projects_page' 
+            onTouchMove={(e) => {handleTouchMove(e)}} 
+            onTouchStart={(e) =>{handleTouchStart(e)}} 
+            onTouchEnd={(e) => {handleMouseUp(e)}}
+            onMouseMove={(e) => handleMouseMove(e)} 
+            onMouseDown={(e) => {handleMouseDown(e)}} 
+            onMouseUp={(e) => {handleMouseUp(e)}}>
             <h1 className='p_header'>
                 {`<Projects/>`}
             </h1>

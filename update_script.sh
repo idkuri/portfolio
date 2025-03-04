@@ -10,5 +10,8 @@ git add --all
 git commit -m "Updated Files with bash script"
 git push origin head:main
 cd ..
+git add --all
+git commit -m "update submodule"
+git push
 read "Hi"
 echo "Script execution completed!"
