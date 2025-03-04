@@ -6,7 +6,7 @@ echo "Updating Submodules"
 git fetch --recurse-submodules
 git submodule update --remote
 echo "Copying Files"
-cp -R -Force build/* idkuri.github.io/
+cp -Rf build/* idkuri.github.io/
 cd idkuri.github.io
 echo "Committing Changes"
 git add --all
