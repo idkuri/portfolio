@@ -8,8 +8,7 @@ import myLyfe_img from '../assets/mygoals.png'
 import snaptranslate from '../assets/snaptranslate.png'
 
 const Projects = (props) => {
-    const [selector, setSelector] = useState(0);
-
+    const [resized, setResized] = useState(false);
     const items = {
         0: <ProjectComponent key={0} project_name={"Othello/Reversi"} project_img={reversi_img} project_link={"https://reversiproject.netlify.app/"}></ProjectComponent>,
         1: <ProjectComponent key={1} project_name={"MyLyfe"} project_img={myLyfe_img} project_link={"https://webdev.cse.buffalo.edu/hci/teams/aquafit"}></ProjectComponent>,
@@ -17,7 +16,6 @@ const Projects = (props) => {
     }
 
     useEffect(() => {
-        // Get the carousel and project element width
         const carousel = document.getElementById("carousel");
         const projectElemWidth = document.getElementsByClassName("project_elem")[0]?.clientWidth / 2;
         
@@ -35,14 +33,65 @@ const Projects = (props) => {
     
         carousel.dataset.percentage = initialPercentage;
 
+        window.addEventListener('resize', () => {
+            setResized(true);
+        })
+
+        return () => {
+            window.removeEventListener('resize', () => {
+                setResized(true);
+            })
+        }
+
     
       }, []);
 
 
-      useEffect(() => {
-        moveCarousel(props.projectPos)
+    useEffect(() => {
+        if (resized) {
+            moveCarouselNoAnimation(props.projectPos);
+            setResized(false);
+        }
+        else {
+            moveCarousel(props.projectPos)
+        }
 
-      }, [props.projectPos])
+    }, [props.projectPos])
+
+
+    const moveCarouselNoAnimation = (distance) => {
+        const carousel = document.getElementById("carousel");
+        const project_elem_width = document.getElementsByClassName("project_elem")[0].clientWidth / 2
+        const maxDelta = 1.25 * window.innerWidth;
+        const project_elem_width_to_percentage = (project_elem_width / maxDelta) * 100
+
+        const percentage = distance
+        let prevPercentage = parseFloat(carousel.dataset.prevPercentage)
+        if (isNaN(prevPercentage)) {
+            prevPercentage = 50 - project_elem_width_to_percentage
+        }
+        if (prevPercentage == 0) {
+            prevPercentage = 50 - project_elem_width_to_percentage
+        }
+        
+        let nextPercentage = 50 - percentage;
+        if (nextPercentage > 50 - project_elem_width_to_percentage) {
+            nextPercentage = 50 - project_elem_width_to_percentage
+
+        }
+        else if (nextPercentage < -50 + project_elem_width_to_percentage) {
+            nextPercentage = -50 + project_elem_width_to_percentage
+        }
+
+
+        for (const image of carousel.getElementsByClassName("project_background")) {
+            image.style.objectPosition = `${nextPercentage + 50}% 50%`;
+        }
+        carousel.dataset.prevPercentage = nextPercentage;
+        carousel.dataset.percentage = nextPercentage;
+        carousel.style.transform = `translate(${nextPercentage}%, 0%)`;
+    }
+      
 
 
     const moveCarousel = (distance) => {
@@ -118,7 +167,6 @@ const Projects = (props) => {
         // console.log(prevPercentage)
         if (isNaN(prevPercentage)) {
             prevPercentage = 50 - project_elem_width_to_percentage
-            console.log(prevPercentage)
         }
         
         let nextPercentage = percentage + prevPercentage;

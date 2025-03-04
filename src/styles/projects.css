@@ -39,7 +39,7 @@
 .project_elem {
     position: relative;
     width: var(--project-elem-width);
-    transition: transform 1.2s forwards;
+    /* transition: transform 1.2s forwards; */
     height: auto;
     min-width: 50px;
     object-fit: cover;
@@ -64,6 +64,7 @@
     @apply flex flex-row gap-5 justify-center;
 }
 
+
 @media (max-width: 768px) {
     .carousel {
         /* animation: carousel 10s linear infinite; */
@@ -76,6 +77,11 @@
     }
     
 }
+
+.resize-animation-stopper * {
+    animation: none !important;
+    transition: none !important;
+  }
 
 .project_background {
     width: var(--project-elem-width);

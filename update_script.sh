@@ -8,7 +8,7 @@ cp -R -Force build/* idkuri.github.io/
 cd idkuri.github.io
 git add --all
 git commit -m "Updated Files with bash script"
-git push origin
+git push origin head:main
 cd ..
 read "Hi"
 echo "Script execution completed!"
