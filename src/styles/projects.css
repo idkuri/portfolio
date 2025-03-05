@@ -41,7 +41,7 @@
     width: var(--project-elem-width);
     /* transition: transform 1.2s forwards; */
     height: auto;
-    min-width: 50px;
+    min-width: 400px;
     object-fit: cover;
     object-position: center;
     aspect-ratio: 1 / 1.2;
@@ -80,7 +80,6 @@
         width: 100vw;
         /* transition: transform 1.2s forwards; */
         height: auto;
-        min-width: 500px;
         object-fit: cover;
         object-position: center;
         aspect-ratio: 1 / 1.2;
