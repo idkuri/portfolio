@@ -64,7 +64,6 @@
     @apply flex flex-row gap-5 justify-center;
 }
 
-
 @media (max-width: 768px) {
     .carousel {
         /* animation: carousel 10s linear infinite; */
@@ -96,6 +95,38 @@
     
     
 }
+
+@media (max-width: 500px) {
+    .carousel {
+        height: auto;
+        width: 100vw;
+        margin-top: 2%;
+        transform: translate(50%, -50%);
+        @apply flex flex-col gap-5 justify-center;
+    }
+
+    .project_elem {
+        position: relative;
+        width: 100vw;
+        /* transition: transform 1.2s forwards; */
+        height: auto;
+        object-fit: cover;
+        object-position: center;
+        aspect-ratio: 1 / 1.2;
+        /* border-radius: 25px; */
+        overflow: hidden;
+        z-index: 1;
+        top: 0;
+        /* transition: transform 0.3s ease-in-out; */
+        box-shadow: 0 0px 25px  rgba(4, 4, 4, 0.3);
+        cursor: pointer;
+        user-select: none;
+        border-radius: 25px;
+        outline: purple 3px solid;
+    }
+    
+}
+
 
 .project_background {
     width: 100%;

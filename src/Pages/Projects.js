@@ -236,9 +236,9 @@ const Projects = (props) => {
 
     return (
         <div className='projects_page' 
-            onTouchMove={(e) => {handleTouchMove(e)}} 
-            onTouchStart={(e) =>{handleTouchStart(e)}} 
-            onTouchEnd={(e) => {handleMouseUp(e)}}
+            // onTouchMove={(e) => {handleTouchMove(e)}} 
+            // onTouchStart={(e) =>{handleTouchStart(e)}} 
+            // onTouchEnd={(e) => {handleMouseUp(e)}}
             onMouseMove={(e) => handleMouseMove(e)} 
             onMouseDown={(e) => {handleMouseDown(e)}} 
             onMouseUp={(e) => {handleMouseUp(e)}}>
