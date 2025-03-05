@@ -184,9 +184,11 @@
 
     
 .resume {
-    font-size: calc(10px + 2vw);
+    font-size: calc(18px + 2vw);
     font-weight: medium;
     /* opacity: 0; */
+    min-width: 250px;
+    min-height: 50px;
     font-family: "Poppins", "sans-serif";
     /* font-style: italic; */
     border: rgb(255, 255, 255) 2px solid;
