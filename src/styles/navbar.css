@@ -12,7 +12,6 @@
     font-family: 'Inter', sans-serif;
     border-radius: 25px;
     background-color: rgba(75, 75, 75, 0.5);
-    @apply space-x-10 text-white font-bold
     
 }
 
