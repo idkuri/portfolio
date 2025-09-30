@@ -36,7 +36,7 @@ function Navbar(props) {
                     offset={-70} // Adjust this offset as per your layout
                     duration={500}>
                     <li className={`cursor-pointer hover:text-purple-600`} onClick={scrollToHomepage}>
-                        <FaHome className={`navbar-icon relative w-full h-full ${props.currentSection === 0 ? "text-purple-500": "text-white"} hover:text-purple-500 `}/>
+                        <FaHome className={`navbar-icon relative w-full h-full ${props.currentSection === 0 ? "text-purple-500": "text-white"} hover:text-purple-500 `} alt='homepage button'/>
                     </li>
                 </Link>
                 <Link activeClass='active'
@@ -46,7 +46,7 @@ function Navbar(props) {
                     offset={-70} // Adjust this offset as per your layout
                     duration={500}>
                     <li className='cursor-pointer hover:text-purple-600' onClick={scrollToProject}>
-                        <FaFolder className={`navbar-icon relative w-full h-full ${props.currentSection === 2 ? "text-purple-500": "text-white"} hover:text-purple-500`}/>
+                        <FaFolder className={`navbar-icon relative w-full h-full ${props.currentSection === 2 ? "text-purple-500": "text-white"} hover:text-purple-500`} alt='projects button'/>
                     </li>
                 </Link>
             </ul>

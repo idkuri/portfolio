@@ -6,13 +6,15 @@ import { configure } from '@testing-library/react';
 import reversi_img from '../assets/reversi.png'
 import myLyfe_img from '../assets/mygoals.png'
 import snaptranslate from '../assets/snaptranslate.png'
+import fundsImg from '../assets/fund_holding_analyzer.png'
 
 const Projects = (props) => {
     const [resized, setResized] = useState(false);
     const items = {
-        0: <ProjectComponent key={0} project_name={"Othello/Reversi"} project_img={reversi_img} project_link={"https://reversiproject.netlify.app/"}></ProjectComponent>,
+        0: <ProjectComponent key={0} project_name={"Othello/Reversi"} project_img={reversi_img} project_link={"https://reversi.idkuri.com"}></ProjectComponent>,
         1: <ProjectComponent key={1} project_name={"MyLyfe"} project_img={myLyfe_img} project_link={"https://webdev.cse.buffalo.edu/hci/teams/aquafit"}></ProjectComponent>,
         2: <ProjectComponent key={2} project_name={"SnapTranslate"} project_img={snaptranslate} project_link={"https://github.com/idkuri/SnapTranslate"}></ProjectComponent>,
+        3: <ProjectComponent key={2} project_name={"Fund Holdings Analyzer"} project_img={fundsImg} project_link={"https://prospect.idkuri.com"}></ProjectComponent>,
     }
 
     useEffect(() => {
