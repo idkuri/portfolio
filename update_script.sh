@@ -1,7 +1,6 @@
 #!/bin/bash
 
 cd "C:\Users\Kuri\Desktop\Portfolio\portfolio"
-# npm run build
 echo "Updating Submodules"
 git fetch --recurse-submodules
 git submodule update --remote

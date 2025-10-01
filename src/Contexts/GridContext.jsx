@@ -42,9 +42,16 @@ export const GridProvider = ({ children }) => {
     }, [toggled]);
 
     useEffect(() => {
-        resizeHandler();
-        setToggled(true)
-    }, [])
+        const handlePageShow = (event) => {
+            // event.persisted === true indicates it's from bfcache
+            setToggled(true);
+            resizeHandler(); // optional: recalc grid size
+        };
+    
+        window.addEventListener("pageshow", handlePageShow);
+    
+        return () => window.removeEventListener("pageshow", handlePageShow);
+    }, []);
 
     useEffect(() => {
         animateTiles();
