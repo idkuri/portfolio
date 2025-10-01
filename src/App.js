@@ -6,6 +6,7 @@ import Navbar from './Components/Navbar';
 import Projects from './Pages/Projects';
 import { Route, Routes } from 'react-router-dom';
 import './styles/App.css';
+import { GridProvider } from './Contexts/GridContext';
 
 function App() {
 
@@ -30,8 +31,8 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path ="/" element={<Pages/>}/>
-        <Route path ="/projects" element={<Projects/>}/>
+          <Route path ="/" element={<Pages/>}/>
+        {/* <Route path ="/projects" element={<Projects/>}/> */}
       </Routes>
     </>
   );

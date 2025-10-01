@@ -14,7 +14,7 @@ function Homepage(props) {
             <h1 className="name" id="me">{myName}</h1>
             <Typewriter className="typewriter"
                 options={{
-                    strings: ["Student", "Fullstack Developer"],
+                    strings: ["Fullstack Developer"],
                     autoStart: true,
                     loop: true,
                     skipAddStyles: true,

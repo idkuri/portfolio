@@ -27,7 +27,7 @@ function Navbar(props) {
     }
 
     return (
-        <div className='absolute flex justify-center top-0 z-10 h-20 w-full bg-transparent'>
+        <div id="navbar" className='fixed flex justify-center top-0 z-10 h-20 w-full bg-transparent'>
             <ul className='navbar space-x-10'>
                 <Link activeClass='active'
                     to='Homepage'

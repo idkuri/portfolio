@@ -7,14 +7,17 @@ import reversi_img from '../assets/reversi.png'
 import myLyfe_img from '../assets/mygoals.png'
 import snaptranslate from '../assets/snaptranslate.png'
 import fundsImg from '../assets/fund_holding_analyzer.png'
+import { useGrid } from '../Contexts/GridContext';
 
 const Projects = (props) => {
     const [resized, setResized] = useState(false);
+    const { columns, rows, toggled, setToggled, createGrid, resizeHandler, animateTiles } = useGrid();
+
     const items = {
-        0: <ProjectComponent key={0} project_name={"Othello/Reversi"} project_img={reversi_img} project_link={"https://reversi.idkuri.com"}></ProjectComponent>,
-        1: <ProjectComponent key={1} project_name={"MyLyfe"} project_img={myLyfe_img} project_link={"https://webdev.cse.buffalo.edu/hci/teams/aquafit"}></ProjectComponent>,
-        2: <ProjectComponent key={2} project_name={"SnapTranslate"} project_img={snaptranslate} project_link={"https://github.com/idkuri/SnapTranslate"}></ProjectComponent>,
-        3: <ProjectComponent key={2} project_name={"Fund Holdings Analyzer"} project_img={fundsImg} project_link={"https://prospect.idkuri.com"}></ProjectComponent>,
+        0: <ProjectComponent key={"project_1"} project_name={"Othello/Reversi"} project_img={reversi_img} project_link={"https://reversi.idkuri.com"} animation={true}></ProjectComponent>,
+        1: <ProjectComponent key={"project_2"} project_name={"MyLyfe"} project_img={myLyfe_img} project_link={"https://webdev.cse.buffalo.edu/hci/teams/aquafit"}></ProjectComponent>,
+        2: <ProjectComponent key={"project_3"} project_name={"SnapTranslate"} project_img={snaptranslate} project_link={"https://github.com/idkuri/SnapTranslate"}></ProjectComponent>,
+        3: <ProjectComponent key={"project_4"} project_name={"Fund Holdings Analyzer"} project_img={fundsImg} project_link={"https://prospect.idkuri.com"}></ProjectComponent>,
     }
 
     useEffect(() => {
@@ -247,6 +250,7 @@ const Projects = (props) => {
             <h1 className='p_header'>
                 {`<Projects/>`}
             </h1>
+            {createGrid(columns * rows)}
             <div className='carousel' id="carousel" data-mouse-down-at="0" data-prev-percentage={props.projectPos}>
                 {renderProjects()}
             </div>
