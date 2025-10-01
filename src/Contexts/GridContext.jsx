@@ -43,9 +43,8 @@ export const GridProvider = ({ children }) => {
 
     useEffect(() => {
         const handlePageShow = (event) => {
-            // event.persisted === true indicates it's from bfcache
             setToggled(true);
-            resizeHandler(); // optional: recalc grid size
+            resizeHandler();
         };
     
         window.addEventListener("pageshow", handlePageShow);
@@ -72,12 +71,17 @@ export const GridProvider = ({ children }) => {
 
         const tiles = document.querySelectorAll(".grid");
         tiles.forEach(tile => (tile.style.pointerEvents = "none"));
-        if (!toggled) {
-            const pageContainer = document.querySelector(".pageContainer");
-            const navbarContainer = document.querySelector("#navbar")
-            if (pageContainer) pageContainer.style.pointerEvents = "None"
-            if (navbarContainer) navbarContainer.style.display = "None"
-        };
+        const pageContainer = document.querySelector(".pageContainer");
+        const navbarContainer = document.querySelector("#navbar")
+        if (toggled) {
+            // Reset styles when toggled is true
+            if (pageContainer) pageContainer.style.pointerEvents = "auto";
+            if (navbarContainer) navbarContainer.style.display = "block";
+        } else {
+            // Disable interaction when toggled is false
+            if (pageContainer) pageContainer.style.pointerEvents = "none";
+            if (navbarContainer) navbarContainer.style.display = "none";
+        }
     }, [columns, rows, toggled]);
 
     return (

@@ -16,5 +16,4 @@ cd ..
 git add --all
 git commit -m "update submodule"
 git push
-read "Hi"
 echo "Script execution completed!"
