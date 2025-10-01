@@ -76,7 +76,7 @@ export const GridProvider = ({ children }) => {
         if (toggled) {
             // Reset styles when toggled is true
             if (pageContainer) pageContainer.style.pointerEvents = "auto";
-            if (navbarContainer) navbarContainer.style.display = "block";
+            if (navbarContainer) navbarContainer.style.display = "flex";
         } else {
             // Disable interaction when toggled is false
             if (pageContainer) pageContainer.style.pointerEvents = "none";
