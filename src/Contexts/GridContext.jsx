@@ -43,6 +43,7 @@ export const GridProvider = ({ children }) => {
 
     useEffect(() => {
         resizeHandler();
+        setToggled(true)
     }, [])
 
     useEffect(() => {
