@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ "$1" == "--build" ]]; then
+    echo "Running build..."
+    npm run build
+fi
+
 cd "C:\Users\Kuri\Desktop\Portfolio\portfolio"
 echo "Updating Submodules"
 git fetch --recurse-submodules

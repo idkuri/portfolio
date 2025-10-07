@@ -75,6 +75,22 @@ const Projects = (props) => {
     };
 
     useEffect(() => {
+        const handlePageShow = (event) => {
+            const overlay = document.querySelector(".overlay");
+            const pageContainer = document.querySelector(".pageContainer");
+            const navbarContainer = document.querySelector("#navbar");
+            if (navbarContainer) navbarContainer.style.display = "flex";
+            if (pageContainer) pageContainer.style.pointerEvents = "auto";
+            if (overlay) overlay.style.setProperty("--overlayColor", "");
+            setParsightOverlay(false);
+        };
+    
+        window.addEventListener("pageshow", handlePageShow);
+    
+        return () => window.removeEventListener("pageshow", handlePageShow);
+    }, []);
+
+    useEffect(() => {
         if (resized) {
             moveCarouselNoAnimation(props.projectPos);
             setResized(false);
