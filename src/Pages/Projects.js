@@ -81,7 +81,11 @@ const Projects = (props) => {
             const navbarContainer = document.querySelector("#navbar");
             if (navbarContainer) navbarContainer.style.display = "flex";
             if (pageContainer) pageContainer.style.pointerEvents = "auto";
-            if (overlay) overlay.style.setProperty("--overlayColor", "");
+            if (overlay) {
+                overlay.style.setProperty("--overlayColor", "")
+                overlay.style.opacity = "0";
+                overlay.style.pointerEvents = "auto";
+            };
             setParsightOverlay(false);
         };
     
