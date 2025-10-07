@@ -68,7 +68,6 @@ const Projects = (props) => {
         "radial-gradient(circle at 50% 50%, rgba(0,212,255,0.1), transparent 50%), black"
       );
     
-      overlay.style.pointerEvents = "none";
       overlay.style.opacity = "1";
       if (navbarContainer) navbarContainer.style.display = "none";
       if (pageContainer) pageContainer.style.pointerEvents = "none";
@@ -84,7 +83,6 @@ const Projects = (props) => {
             if (overlay) {
                 overlay.style.setProperty("--overlayColor", "")
                 overlay.style.opacity = "0";
-                overlay.style.pointerEvents = "auto";
             };
             setParsightOverlay(false);
         };
