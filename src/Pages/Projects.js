@@ -55,22 +55,23 @@ const Projects = (props) => {
       }, []);
 
     const handleParsightAnimation = () => {
-      const overlay = document.querySelector(".overlay");
-      const navbarContainer = document.querySelector("#navbar")
-      const pageContainer = document.querySelector(".pageContainer");
-      if (!overlay) return;
+        setParsightOverlay(!parsightOverlay)
+        const navbarContainer = document.querySelector("#navbar");
+        const pageContainer = document.querySelector(".pageContainer");
+        const overlay = document.querySelector(".overlay");
+        if (!overlay) return;
+        console.log("Hello")
 
-      setParsightOverlay(!parsightOverlay)
+        overlay.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        // Set the radial gradient dynamically
+        overlay.style.setProperty(
+          "--overlayColor",
+          "radial-gradient(circle at 50% 50%, rgba(0,212,255,0.1), transparent 50%), black"
+        );
     
-      // Set the radial gradient dynamically
-      overlay.style.setProperty(
-        "--overlayColor",
-        "radial-gradient(circle at 50% 50%, rgba(0,212,255,0.1), transparent 50%), black"
-      );
-    
-      overlay.style.opacity = "1";
-      if (navbarContainer) navbarContainer.style.display = "none";
-      if (pageContainer) pageContainer.style.pointerEvents = "none";
+        overlay.style.opacity = "1";
+        if (navbarContainer) navbarContainer.style.display = "none";
+        if (pageContainer) pageContainer.style.pointerEvents = "none";
     };
 
     useEffect(() => {

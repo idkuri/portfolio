@@ -20,7 +20,7 @@ html {
   opacity: 0;
   background: var(--overlayColor, black); /* fallback to black */
   transition: opacity 500ms ease-in-out;
-  pointer-events: none; /* disable clicks when hidden */
+  pointer-events: none;
   overflow: hidden;
   width: 100vw;
   height: 100vh;  

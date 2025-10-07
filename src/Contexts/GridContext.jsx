@@ -54,7 +54,10 @@ export const GridProvider = ({ children }) => {
 
     useEffect(() => {
         animateTiles();
-        console.log(rows, columns, toggled)
+        if (!toggled) {
+            const wallpaper = document.querySelector('.wallpaper');
+            wallpaper.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }
     }, [rows, columns, toggled])
 
     const animateTiles = useCallback(() => {
