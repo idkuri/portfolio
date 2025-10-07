@@ -7,15 +7,18 @@ import reversi_img from '../assets/reversi.png'
 import myLyfe_img from '../assets/mygoals.png'
 import snaptranslate from '../assets/snaptranslate.png'
 import fundsImg from '../assets/fund_holding_analyzer.png'
+import Parsight from "../assets/parsight.png"
 import { useGrid } from '../Contexts/GridContext';
+import logo from "../assets/icononly_transparent_nobuffer.png";
 
 const Projects = (props) => {
     const [resized, setResized] = useState(false);
     const { columns, rows, toggled, setToggled, createGrid, resizeHandler, animateTiles } = useGrid();
+    const [ parsightOverlay, setParsightOverlay ] = useState(false)
 
     const items = {
-        0: <ProjectComponent key={"project_1"} project_name={"Othello/Reversi"} project_img={reversi_img} project_link={"https://reversi.idkuri.com"} animation={true}></ProjectComponent>,
-        1: <ProjectComponent key={"project_2"} project_name={"MyLyfe"} project_img={myLyfe_img} project_link={"https://webdev.cse.buffalo.edu/hci/teams/aquafit"}></ProjectComponent>,
+        0: <ProjectComponent key={"project_1"} project_name={"Othello/Reversi"} project_img={reversi_img} project_link={"https://reversi.idkuri.com"} gridAnimation={true} delay={2000}></ProjectComponent>,
+        1: <ProjectComponent key={"project_2"} project_name={"Parsight"} project_img={Parsight} project_link={"https://parsight.gnostora.ai/"} onClick={()=> handleParsightAnimation()} delay={2000}></ProjectComponent>,
         2: <ProjectComponent key={"project_3"} project_name={"SnapTranslate"} project_img={snaptranslate} project_link={"https://github.com/idkuri/SnapTranslate"}></ProjectComponent>,
         3: <ProjectComponent key={"project_4"} project_name={"Fund Holdings Analyzer"} project_img={fundsImg} project_link={"https://prospect.idkuri.com"}></ProjectComponent>,
     }
@@ -51,6 +54,25 @@ const Projects = (props) => {
     
       }, []);
 
+    const handleParsightAnimation = () => {
+      const overlay = document.querySelector(".overlay");
+      const navbarContainer = document.querySelector("#navbar")
+      const pageContainer = document.querySelector(".pageContainer");
+      if (!overlay) return;
+
+      setParsightOverlay(!parsightOverlay)
+    
+      // Set the radial gradient dynamically
+      overlay.style.setProperty(
+        "--overlayColor",
+        "radial-gradient(circle at 50% 50%, rgba(0,212,255,0.1), transparent 50%), black"
+      );
+    
+      overlay.style.pointerEvents = "none";
+      overlay.style.opacity = "1";
+      if (navbarContainer) navbarContainer.style.display = "none";
+      if (pageContainer) pageContainer.style.pointerEvents = "none";
+    };
 
     useEffect(() => {
         if (resized) {
@@ -251,6 +273,31 @@ const Projects = (props) => {
                 {`<Projects/>`}
             </h1>
             {createGrid(columns * rows)}
+            <div className='overlay'></div>
+            {parsightOverlay && (
+                <>
+                    <div className="
+                        absolute 
+                        flex
+                        items-center
+                        justify-center
+                        inset-0 
+                        z-[1100] 
+                        pointer-events-none 
+                        bg-[linear-gradient(rgba(0,212,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,212,255,0.05)_1px,transparent_1px)] 
+                        bg-[size:50px_50px]
+                        overflow-hidden
+                        fade-in" 
+                    >
+                    <img 
+                        src={logo} 
+                        alt="Logo" 
+                        className="w-60 h-60 md:w-75 md:h-75 animate-pulse fade-in"
+                        style={{ filter: "drop-shadow(0 0 40px hsl(187 100% 50% / 0.3))" }}
+                    />
+                    </div>
+                </>
+            )}
             <div className='carousel' id="carousel" data-mouse-down-at="0" data-prev-percentage={props.projectPos}>
                 {renderProjects()}
             </div>

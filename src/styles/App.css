@@ -13,6 +13,19 @@ html {
   touch-action: pan-x pan-y;
 }
 
+.overlay {
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  z-index: 1000;
+  opacity: 0;
+  background: var(--overlayColor, black); /* fallback to black */
+  transition: opacity 500ms ease-in-out;
+  pointer-events: none; /* disable clicks when hidden */
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;  
+}
+
 .wallpaper {
     position: fixed;
     animation: background-animation 5s linear infinite;
@@ -235,6 +248,20 @@ section#homepage.homepage {
     transform: rotate(360deg)
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in forwards; /* forwards keeps the final opacity */
+}
+
 
 
 img {
