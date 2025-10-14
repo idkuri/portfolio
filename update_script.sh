@@ -1,24 +1,59 @@
 #!/bin/bash
 
-if [[ "$1" == "--build" ]]; then
-    echo "Running build..."
-    npm run build
+BUILD=false
+TRACKED=false
+
+# Parse arguments
+for arg in "$@"; do
+	case $arg in
+		--build)
+			BUILD=true
+			;;
+		--tracked)
+			TRACKED=true
+			;;
+	esac
+done
+
+if $BUILD; then
+	echo "Running build..."
+	npm run build
 fi
 
 cd "C:\Users\Kuri\Desktop\Portfolio\portfolio"
+
 echo "Updating Submodules"
 git fetch --recurse-submodules
 git submodule update --remote
+
 echo "Copying Files"
 cp -Rf build/* idkuri.github.io/
 cd idkuri.github.io
+
 echo "Committing Changes"
-git add --all
+if $TRACKED; then
+	echo "Adding only tracked files"
+	git add -u
+else
+	echo "Adding all files"
+	git add --all
+fi
+
 git commit -m "Updated Files with bash script"
 git push origin head:main
 echo "Changes Pushed"
+
 cd ..
-git add --all
+
+if $TRACKED; then
+	echo "Adding only tracked files"
+	git add -u
+else
+	echo "Adding all files"
+	git add --all
+fi
+
 git commit -m "update submodule"
 git push
+
 echo "Script execution completed!"
