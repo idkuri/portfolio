@@ -18,7 +18,7 @@ const Projects = (props) => {
 
     const items = {
         0: <ProjectComponent key={"project_1"} project_name={"Othello/Reversi"} project_img={reversi_img} project_link={"https://reversi.idkuri.com"} gridAnimation={true} delay={2000}></ProjectComponent>,
-        1: <ProjectComponent key={"project_2"} project_name={"Parsight"} project_img={Parsight} project_link={"https://parsight.gnostora.ai/"} onClick={()=> handleParsightAnimation()} delay={2000}></ProjectComponent>,
+        1: <ProjectComponent key={"project_2"} project_name={"Parsight"} project_img={Parsight} project_link={"https://parsight.idkuri.com/"} onClick={()=> handleParsightAnimation()} delay={2000}></ProjectComponent>,
         2: <ProjectComponent key={"project_3"} project_name={"SnapTranslate"} project_img={snaptranslate} project_link={"https://github.com/idkuri/SnapTranslate"}></ProjectComponent>,
         3: <ProjectComponent key={"project_4"} project_name={"Fund Holdings Analyzer"} project_img={fundsImg} project_link={"https://prospect.idkuri.com"}></ProjectComponent>,
     }
