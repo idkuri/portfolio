@@ -20,11 +20,10 @@
         font-size: calc(25px + 2vw);
         font-family: "Poppins", "sans-serif";
         font-style: italic;
-        font-weight: bold;
+        /* font-weight: bold; */
         text-align: center;
         margin-right: auto;
         left: 11.5%;
-        -webkit-background-clip: text; 
         transition: transform 0.5s ease-out 0s;
         color: rgb(255, 255, 255);
     }
@@ -43,7 +42,7 @@
         width: 100vw;
         /* margin-top: 14.5rem;
         margin-top: 42.2%; */
-        @apply space-x-5
+        gap: 1.25rem;       /* space-x-5 in Tailwind equals 1.25rem */
     }
 
 
@@ -75,7 +74,7 @@
             width: 100vw;
             /* margin-top: 14.5rem;
             margin-top: 42.2%; */
-            @apply space-x-5
+            gap: 1.25rem; /* horizontal spacing between flex items */
         }
     }
 
@@ -206,6 +205,7 @@
     border: rgb(0, 0, 0) 3px solid;
     color: black;
     opacity: 0;
+    cursor: pointer;
 }
 
 @keyframes appear {

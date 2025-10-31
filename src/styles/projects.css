@@ -20,8 +20,10 @@
 }
 
 .project_elem:hover {
-    transform: scale(1.05);
+    transform: scale(1.25);
     box-shadow: 0 100px 100px rgba(0, 0, 0, 0.3);
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 /* .project_elem:hover > .background {
@@ -49,7 +51,7 @@
     overflow: hidden;
     z-index: 1;
     top: 0;
-    /* transition: transform 0.3s ease-in-out; */
+    transition: all 0.5s ease-in-out;
     box-shadow: 0 0px 25px  rgba(4, 4, 4, 0.3);
     cursor: pointer;
     user-select: none;
@@ -61,7 +63,11 @@
     width: 125vw;
     margin-top: 2%;
     transform: translate(50%, -50%);
-    @apply flex flex-row gap-5 justify-center;
+    display: flex;         /* flex */
+    flex-direction: row;   /* flex-row */
+    justify-content: center; /* justify-center */
+    gap: 1.25rem;          /* gap-5 in Tailwind ≈ 1.25rem */
+
 }
 
 @media (max-width: 768px) {
@@ -73,7 +79,11 @@
         margin-top: 2%;
         transform: translate(50%, -50%);
         will-change: transform;
-        @apply flex flex-row gap-5 justify-center;
+        display: flex;          /* flex */
+        flex-direction: row;    /* flex-row */
+        justify-content: center; /* justify-center */
+        gap: 1.25rem;           /* gap-5 corresponds to 1.25rem in Tailwind */
+
     }
     .project_elem {
         position: relative;
@@ -105,7 +115,11 @@
         min-width: none;
         margin-top: 2%;
         transform: translate(50%, -50%);
-        @apply flex flex-col gap-5 justify-center;
+        display: flex;           /* flex */
+        flex-direction: column;  /* flex-col */
+        justify-content: center; /* justify-center */
+        gap: 1.25rem;            /* gap-5 corresponds to 1.25rem in Tailwind */
+
     }
 
     .project_elem {

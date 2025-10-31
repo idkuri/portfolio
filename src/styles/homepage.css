@@ -1,20 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;0,800;1,600;1,700;1,800;1,900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;0,800;1,600;1,700;1,800;1,900&display=swap');
 
 .home-wrapper {
     /* outline: rgb(0, 169, 241) 2px solid ; */
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
-    grid-template-columns: 1fr;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     margin: 0;
     padding: 0;
     gap:0;
+    z-index: 999 !important;
 }
 
 
@@ -24,14 +24,18 @@
     margin: 0;
     font-family: 'Poppins', 'sans-serif';
     font-style: italic;
-    font-weight: bold;
     color: white;
     width: auto;
     /* outline: blue 5px solid; */
     /* -webkit-text-stroke: 3px black; */
-    @apply text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-200
+    text-align: center;                       /* text-center */
+    color: transparent;                        /* text-transparent */
+    -webkit-background-clip: text;             /* bg-clip-text */
+    background-clip: text;                     /* for non-WebKit browsers */
+    background-image: linear-gradient(to right, #c084fc, #fbcfe8);
+    overflow-y: hidden;
+    overflow: hidden;
 }
-
 .name#intro {
     /* position: absolute; */
     font-size: calc(20px + 3.5vw);
@@ -43,7 +47,9 @@
 }
 
 .name#me {
+    position: relative;
     animation: appear 1s ease-in both 1s;
+    transition: width 5s ease, transform 0.3s ease, color 0.3s ease;
 }
 
 .homepage-intro {
@@ -143,9 +149,15 @@
     --icon-size: calc(20px + 0.9vw);
     height: calc(1.5 * var(--icon-size));
     /* outline: red 3px solid;  */
-    @apply space-x-10;
+    display: flex;       /* make sure it's a flex container */
+    gap: 2.5rem;         /* space-x-10 in Tailwind ≈ 2.5rem */
     /* background-color: #ffffff; */
     animation: appear 1s ease-in both 2.5s;
 }
 
+.char-0, .char-1, .char-2, .char-3, .char-4,
+.char-5, .char-6, .char-7, .char-8 {
+    display: inline-block;        /* allows width/height/transform */
+    overflow-y: hidden;
+}
 

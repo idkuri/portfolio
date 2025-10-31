@@ -1,7 +1,6 @@
 import { createContext, useContext, useState, useCallback, useEffect } from "react";
-import anime from "animejs/lib/anime.es.js";
+import anime from "animejs";
 import "../styles/App.css"
-import { random } from "animejs";
 
 // Create context
 const GridContext = createContext();

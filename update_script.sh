@@ -17,7 +17,7 @@ done
 
 if $BUILD; then
 	echo "Running build..."
-	npm run build
+	bun run build
 fi
 
 cd "C:\Users\Kuri\Desktop\Portfolio\portfolio"

@@ -7,14 +7,14 @@
     margin-top: -10%;
     font-family: 'Poppins', 'sans-serif';
     font-size: calc(24px + 1.5vw);
-    color: rgb(255, 255, 255);
+    color: transparent; /* replaced font-bold text-transparent */
     font-weight: bold;
     padding-left: 1%;
     transition: opacity 1s ease-in;
     -webkit-text-stroke: 2px black;
-    /* outline: red 5px solid; */
+    background-clip: text; /* bg-clip-text */
+    background-image: linear-gradient(to right, white, #fbb6ce); /* from-white to-pink-200 */
     animation: appear 3s both 1s;
-    @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-pink-200
 }
 
 .p_header#aboutme {

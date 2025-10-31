@@ -184,7 +184,7 @@ section#homepage.homepage {
   height: 100vh;
   overflow: hidden;
   transition: transform 1s ease-in-out;
-  @apply bg-zinc-800;
+  background-color: #27272a; /* Tailwind's bg-zinc-800 */
 }
 
 .loading_font {
