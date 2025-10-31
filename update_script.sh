@@ -28,7 +28,7 @@ git fetch --recurse-submodules
 git submodule update --remote
 
 echo "Copying Files"
-cp -Rf build/* idkuri.github.io/
+cp -Rf dist/* idkuri.github.io/
 cd idkuri.github.io
 
 echo "Committing Changes"
