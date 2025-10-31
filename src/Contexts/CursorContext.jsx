@@ -18,21 +18,21 @@ const CustomCursor = ({ mouseHover }) => {
     
     
     return (
-        <motion.div 
-          className={`fixed w-10 h-10 bg-linear-to-r from-purple-400 to-pink-200 rounded-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none`}
-          style={{ zIndex: 99 }}
-          animate={{
-            x: mousePos.x,
-            y: mousePos.y,
-            scale: mouseHover ? 5 : 1,  // example: scale up on hover or some condition
-            opacity: mouseHover ? 0.5: 1
-          }}
-          transition={{
-            x: { duration: 0 },  // instant snapping
-            y: { duration: 0 },  // instant snapping
-            scale: { type: "spring", stiffness: 300, damping: 20 } // smooth scaling
-          }}
-        />
+      <motion.div 
+        className={`fixed w-5 h-5 bg-linear-to-r from-purple-400 to-pink-200 rounded-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none 
+          ${mouseHover ? "shadow-[0_0_10px_10px_rgba(168,85,247,0.6)]" : "shadow-[0_0_15px_15px_rgba(168,85,247,0.6)]"}`}
+        animate={{
+          x: mousePos.x,
+          y: mousePos.y,
+          scale: mouseHover ? 10 : 1,
+          opacity: mouseHover ? 0.5 : 1
+        }}
+        transition={{
+          x: { duration: 0 },
+          y: { duration: 0 },
+          scale: { type: "spring", stiffness: 300, damping: 20 }
+        }}
+      />
 
     );
 };
