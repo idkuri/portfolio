@@ -1,0 +1,49 @@
+.contacts_page {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    gap: 150px;
+    outline: 1px solid blue;
+}
+
+.contacts_header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(35px + 1.5vw);
+    font-weight: bold;
+    font-family: 'Poppins', 'sans-serif';
+    width: 100%;
+    color: white;
+    animation: appear 3s both;
+}
+
+.contact_button {
+    font-size: calc(18px + 2vw);
+    font-weight: medium;
+    /* opacity: 0; */
+    min-width: 250px;
+    min-height: 50px;
+    font-family: "Poppins", "sans-serif";
+    /* font-style: italic; */
+    border: rgb(255, 255, 255) 2px solid;
+    border-radius: 16px;
+    color: rgb(222, 222, 222);
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    padding-left: 10px;
+    padding-right: 10px;
+    white-space: nowrap;
+    animation: appear 1s both;
+}
+
+.contact_button:hover {
+    background-color: rgb(210, 210, 210);
+    border: rgb(0, 0, 0) 3px solid;
+    color: black;
+    opacity: 0;
+}

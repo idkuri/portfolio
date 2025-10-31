@@ -17,6 +17,7 @@ done
 
 if $BUILD; then
 	echo "Running build..."
+	bun i
 	bun run build
 fi
 
