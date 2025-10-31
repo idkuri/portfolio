@@ -21,6 +21,7 @@ const CustomCursor = ({ mouseHover }) => {
       <motion.div 
         className={`fixed w-5 h-5 bg-linear-to-r from-purple-400 to-pink-200 rounded-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none 
           ${mouseHover ? "shadow-[0_0_10px_10px_rgba(168,85,247,0.6)]" : "shadow-[0_0_15px_15px_rgba(168,85,247,0.6)]"}`}
+        style={{ zIndex: 99 }}
         animate={{
           x: mousePos.x,
           y: mousePos.y,

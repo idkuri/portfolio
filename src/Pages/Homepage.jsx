@@ -82,8 +82,8 @@ function Homepage(props) {
             />
             <div className='social_wrapper'>
                 <FaLinkedinIn className='relative w-full h-full text-white hover:text-blue-500 cursor-pointer' onClick={ ()=> window.open('https://www.linkedin.com/in/acao5/', '_blank')}></FaLinkedinIn>
-                <FaGithub className='relative w-full h-full text-white hover:text-black cursor-pointer' onClick={()=> window.open('https://github.com/idkuri', '_blank')}></FaGithub>
-                <FiMail className='relative w-full h-full text-white hover:text-gray cursor-pointer' onClick={()=> window.location.href='mailto:acaoy2@gmail.com'}></FiMail>
+                <FaGithub className='relative w-full h-full text-white hover:text-gray-500 cursor-pointer' onClick={()=> window.open('https://github.com/idkuri', '_blank')}></FaGithub>
+                <FiMail className='relative w-full h-full text-white hover:text-red-500 cursor-pointer' onClick={()=> window.location.href='mailto:acaoy2@gmail.com'}></FiMail>
             </div>
 
             

@@ -4,7 +4,42 @@ import {FaReact, FaJsSquare, FaPython, FaHtml5, FaCss3Alt, FaJava, FaPhp} from "
 import {SiTailwindcss} from "react-icons/si"
 import {IoLogoNodejs} from "react-icons/io"
 
+const PythonIcon = ({ className, blueColor = "#ffffff", yellowColor = "#ffffff" }) => (
+    <svg 
+        viewBox="0 0 32 32" 
+        fill="none" 
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+    >
+        <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+        <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+            {/* Blue snake (top-left) */}
+            <path 
+                fillRule="evenodd" 
+                clipRule="evenodd" 
+                d="M13.0164 2C10.8193 2 9.03825 3.72453 9.03825 5.85185V8.51852H15.9235V9.25926H5.97814C3.78107 9.25926 2 10.9838 2 13.1111L2 18.8889C2 21.0162 3.78107 22.7407 5.97814 22.7407H8.27322V19.4815C8.27322 17.3542 10.0543 15.6296 12.2514 15.6296H19.5956C21.4547 15.6296 22.9617 14.1704 22.9617 12.3704V5.85185C22.9617 3.72453 21.1807 2 18.9836 2H13.0164ZM12.0984 6.74074C12.8589 6.74074 13.4754 6.14378 13.4754 5.40741C13.4754 4.67103 12.8589 4.07407 12.0984 4.07407C11.3378 4.07407 10.7213 4.67103 10.7213 5.40741C10.7213 6.14378 11.3378 6.74074 12.0984 6.74074Z" 
+                fill={blueColor}
+                className="python-blue"
+            />
+            
+            {/* Yellow snake (bottom-right) */}
+            <path 
+                fillRule="evenodd" 
+                clipRule="evenodd" 
+                d="M18.9834 30C21.1805 30 22.9616 28.2755 22.9616 26.1482V23.4815L16.0763 23.4815L16.0763 22.7408L26.0217 22.7408C28.2188 22.7408 29.9998 21.0162 29.9998 18.8889V13.1111C29.9998 10.9838 28.2188 9.25928 26.0217 9.25928L23.7266 9.25928V12.5185C23.7266 14.6459 21.9455 16.3704 19.7485 16.3704L12.4042 16.3704C10.5451 16.3704 9.03809 17.8296 9.03809 19.6296L9.03809 26.1482C9.03809 28.2755 10.8192 30 13.0162 30H18.9834ZM19.9015 25.2593C19.1409 25.2593 18.5244 25.8562 18.5244 26.5926C18.5244 27.329 19.1409 27.9259 19.9015 27.9259C20.662 27.9259 21.2785 27.329 21.2785 26.5926C21.2785 25.8562 20.662 25.2593 19.9015 25.2593Z" 
+                fill={yellowColor}
+                className="python-yellow"
+            />
+        </g>
+    </svg>
+);
+
 function Skills(props) {
+    const [pythonColors, setPythonColors] = React.useState({
+        blue: "#ffffff",
+        yellow: "#ffffff"
+    });
     // console.log(props.headerPos)
     const str = "I speak:"
     const transformValue = `translateX(${1.25 * (props.headerPos) / 2}vw)`;
@@ -18,6 +53,17 @@ function Skills(props) {
                 <div className='cover' style = {{width: `${props.headerPos >= 40 ? "0%": "110vw"}`}}></div>
                 <div className="icon">
                     <FaReact className='react'>ReactJS</FaReact>
+                </div>
+                <div 
+                    className='icon'
+                    onMouseEnter={() => setPythonColors({ blue: "#3776AB", yellow: "#FFD43B" })}
+                    onMouseLeave={() => setPythonColors({ blue: "#ffffff", yellow: "#ffffff" })}
+                >
+                    <PythonIcon 
+                        className="python w-24 h-24" 
+                        blueColor={pythonColors.blue}
+                        yellowColor={pythonColors.yellow}
+                    />
                 </div>
                 <div className='icon'>
                     <FaJsSquare className='js'>Javascript</FaJsSquare>
@@ -33,15 +79,6 @@ function Skills(props) {
                 </div>
                 <div className='icon'>
                     <FaHtml5 className='html5'>HTML5</FaHtml5>
-                </div>
-                <div className='icon'>
-                    <FaPython className='python'>Python</FaPython>
-                </div>
-                <div className='icon'>
-                    <FaJava className='java'>Java</FaJava>
-                </div>
-                <div className='icon'>
-                    <FaPhp className='php'>PHP</FaPhp>
                 </div>
             </div>
             {props.headerPos >= 40 ? (<button className="resume" onClick={() => {window.open("https://drive.google.com/file/d/1TiuqYuiBiD6HX0kNNnUoDahcNnhW42We/view", '_blank');}}>

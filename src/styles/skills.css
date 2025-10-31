@@ -123,7 +123,6 @@
     }
 
     .icon:hover > .python {
-        /* outline: 5px black solid; */
         transform: translateY(-60px);
         color: #4b8bbe;
     }
