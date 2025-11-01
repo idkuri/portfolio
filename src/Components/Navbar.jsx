@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "../styles/navbar.css"
 import { Link } from 'react-scroll';
 import HomeIcon from '../assets/home-icon.svg';
 import FolderIcon from '../assets/folder-icon.svg'
 import { FaHome, FaFolder } from 'react-icons/fa';
+import { CursorContext } from '../Contexts/CursorContext';
 
 function Navbar(props) {
+    const { mouseHover, setMouseHover } = useContext(CursorContext);
+
     const scrollToProject = () => {
         const projectsSection = document.getElementById('projects');
         if (projectsSection) {
@@ -36,7 +39,12 @@ function Navbar(props) {
                     offset={-70} // Adjust this offset as per your layout
                     duration={500}>
                     <li className={`cursor-pointer hover:text-purple-600`} onClick={scrollToHomepage}>
-                        <FaHome className={`navbar-icon relative w-full h-full ${props.currentSection === 0 ? "text-purple-500": "text-white"} hover:text-purple-500 `} alt='homepage button'/>
+                        <FaHome 
+                            className={`navbar-icon relative w-full h-full ${props.currentSection === 0 ? "text-purple-500": "text-white"} hover:text-purple-500 `} 
+                            // onMouseEnter={() => setMouseHover(true)}
+                            // onMouseLeave={() =>setMouseHover(false)} 
+                            alt='homepage button'
+                        />
                     </li>
                 </Link>
                 <Link activeClass='active'
@@ -46,7 +54,11 @@ function Navbar(props) {
                     offset={-70} // Adjust this offset as per your layout
                     duration={500}>
                     <li className='cursor-pointer hover:text-purple-600' onClick={scrollToProject}>
-                        <FaFolder className={`navbar-icon relative w-full h-full ${props.currentSection === 2 ? "text-purple-500": "text-white"} hover:text-purple-500`} alt='projects button'/>
+                        <FaFolder 
+                            className={`navbar-icon relative w-full h-full ${props.currentSection === 2 ? "text-purple-500": "text-white"} hover:text-purple-500`}
+                            // onMouseEnter={() => setMouseHover(true)}
+                            // onMouseLeave={() =>setMouseHover(false)}
+                            alt='projects button'/>
                     </li>
                 </Link>
             </ul>
