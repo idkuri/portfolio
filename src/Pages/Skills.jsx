@@ -79,13 +79,13 @@ function Skills(props) {
                     {str}
                 </h1>
             <div className='technologies'>
-                <SkillIcon name="react" Icon={FaReact} IconProps={{ className: "react w-10 h-10 md:w-20 h-20 xl:w-24 h-24" }} />
-                <SkillIcon name="python" Icon={PythonIcon} IconProps={{ className: "python w-10 h-10 md:w-20 h-20 xl:w-24 h-24" }} />
-                <SkillIcon name="js" Icon={FaJsSquare} IconProps={{ className: "js w-10 h-10 md:w-20 h-20 xl:w-24 h-24" }} />
-                <SkillIcon name="css3" Icon={FaCss3Alt} IconProps={{ className: "css3 w-10 h-10 md:w-20 h-20 xl:w-24 h-24" }} />
-                <SkillIcon name="tailwind" Icon={SiTailwindcss} IconProps={{ className: "tailwind w-10 h-10 md:w-20 h-20 xl:w-24 h-24" }} />
-                <SkillIcon name="nodejs" Icon={IoLogoNodejs} IconProps={{ className: "nodejs w-10 h-10 md:w-20 h-20 xl:w-24 h-24" }} />
-                <SkillIcon name="html5" Icon={FaHtml5} IconProps={{ className: "html5 w-10 h-10 md:w-20 h-20 xl:w-24 h-24" }} />
+                <SkillIcon name="react" Icon={FaReact} IconProps={{ className: "react w-8 h-8 sm:w-10 h-10 md:w-20 h-20 xl:w-24 h-24" }} />
+                <SkillIcon name="python" Icon={PythonIcon} IconProps={{ className: "python w-8 h-8 sm:w-10 h-10 md:w-20 h-20 xl:w-24 h-24" }} />
+                <SkillIcon name="js" Icon={FaJsSquare} IconProps={{ className: "js w-8 h-8 sm:w-10 h-10 md:w-20 h-20 xl:w-24 h-24" }} />
+                <SkillIcon name="css3" Icon={FaCss3Alt} IconProps={{ className: "css3 w-8 h-8 sm:w-10 h-10 md:w-20 h-20 xl:w-24 h-24" }} />
+                <SkillIcon name="tailwind" Icon={SiTailwindcss} IconProps={{ className: "tailwind w-8 h-8 sm:w-10 h-10 md:w-20 h-20 xl:w-24 h-24" }} />
+                <SkillIcon name="nodejs" Icon={IoLogoNodejs} IconProps={{ className: "nodejs w-8 h-8 sm:w-10 h-10 md:w-20 h-20 xl:w-24 h-24" }} />
+                <SkillIcon name="html5" Icon={FaHtml5} IconProps={{ className: "html5 w-8 h-8 sm:w-10 h-10 md:w-20 h-20 xl:w-24 h-24" }} />
             </div>
             {props.headerPos >= 40 ? (<button className="resume" onClick={() => {window.open("https://drive.google.com/file/d/1TiuqYuiBiD6HX0kNNnUoDahcNnhW42We/view", '_blank');}}>
                 Resume
