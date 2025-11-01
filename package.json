@@ -19,7 +19,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "push": "bash ./update_script.sh --build"
+    "push": "bash update_script.sh --build"
   },
   "eslintConfig": {
     "extends": [
