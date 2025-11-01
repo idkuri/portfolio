@@ -2,6 +2,7 @@
 
 BUILD=false
 TRACKED=false
+BUN_CMD="$HOME/.bun/bin/bun"
 
 # Parse arguments
 for arg in "$@"; do
@@ -17,11 +18,9 @@ done
 
 if $BUILD; then
 	echo "Running build..."
-	bun i
-	bun run build
+    "$BUN_CMD" install
+    "$BUN_CMD" run build
 fi
-
-cd "C:\Users\Kuri\Desktop\Portfolio\portfolio"
 
 echo "Updating Submodules"
 git fetch --recurse-submodules
