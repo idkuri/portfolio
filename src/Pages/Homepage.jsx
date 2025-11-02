@@ -10,6 +10,16 @@ function Homepage(props) {
     const myName = "<Andrew/>"
     const [hoveredIndex, setHoveredIndex] = useState(new Set());
     const hoverTimeouts = useRef(new Map());
+    
+    useEffect(() => {
+        const wrapper = document.getElementById("home-wrapper");
+        wrapper.style.pointerEvents = "none"
+        const tid = setTimeout(() => {
+            wrapper.style.pointerEvents = "auto"
+        }, 2000)
+
+        return () => clearTimeout(tid);
+    }, [])
 
 
     const handleMouseEnter = (index) => {
@@ -63,7 +73,7 @@ function Homepage(props) {
     };
 
     return (
-        <div className="home-wrapper">
+        <div id="home-wrapper" className="home-wrapper">
                 <h1 className='name' id="intro">Hi, I'm</h1>
                 <div className="flex justify-center item-center w-full transition-all 0.5s">
                     <h1 className='name' id="me">
