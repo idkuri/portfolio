@@ -7,7 +7,7 @@ const CustomCursor = ({ mouseHover, hoverType }) => {
 
   const cursorColor = {
     default: {
-      gradient: "from-purple-400 to-pink-200", // real gradient
+      gradient: "bg-gradient-to-r from-purple-400 to-pink-200", // real gradient
       glow: "rgba(168,85,247,0.6)",
     },
     react: {
@@ -35,9 +35,9 @@ const CustomCursor = ({ mouseHover, hoverType }) => {
       glow: "rgba(227,76,38,0.6)",
     },
     python: {
-      gradient: "from-[#4B8BBE] to-[#FFD43B]",
+      gradient: "bg-[linear-gradient(135deg,#4B8BBE_30%,#FFD43B_100%)]",
       glow: [
-        "0 0 10px 6px rgba(75,139,190,0.6)",   // blue glow
+        "0 0 10px 10px rgba(75,139,190,0.6)",   // blue glow
         "0 0 20px 10px rgba(255,212,59,0.5)",  // yellow glow
       ],
     },
@@ -67,7 +67,7 @@ const CustomCursor = ({ mouseHover, hoverType }) => {
         ${
           current.bg
             ? current.bg
-            : `bg-gradient-to-r ${current.gradient}`
+            : `${current.gradient}`
         }`}
       style={{
         zIndex: 99,
