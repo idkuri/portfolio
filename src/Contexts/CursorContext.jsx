@@ -37,7 +37,7 @@ const CustomCursor = ({ mouseHover, hoverType }) => {
     python: {
       gradient: "bg-[linear-gradient(135deg,#4B8BBE_30%,#FFD43B_100%)]",
       glow: [
-        "0 0 10px 10px rgba(75,139,190,0.6)",   // blue glow
+        "0 0 10px 5px rgba(75,139,190,0.6)",   // blue glow
         "0 0 20px 10px rgba(255,212,59,0.5)",  // yellow glow
       ],
     },
