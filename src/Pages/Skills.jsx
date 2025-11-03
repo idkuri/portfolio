@@ -41,7 +41,8 @@ const PythonIcon = ({ className, hovering }) => {
 }
 
 
-const SkillIcon = ({ Icon, IconProps, name }) => {
+/* Custom refers to whether or not it is a custom icon */
+const SkillIcon = ({ Icon, IconProps, name, custom }) => {
     const { mouseHover, setMouseHover, setHoverType } = useContext(CursorContext);
     const [ hovering, setHovering ] = useState(false);
 
@@ -62,8 +63,11 @@ const SkillIcon = ({ Icon, IconProps, name }) => {
                 }
             }
                 >
-                    
-            <Icon {...IconProps} hovering={hovering}/>
+            
+            {/* Add hovering to the custom icon since hovering state can't be passed from the original custom icon to a component*/}
+            { custom ?
+                (<Icon {...IconProps} hovering={hovering}/>) : (<Icon {...IconProps}/>)
+            }
     </div>
 
     )
@@ -80,7 +84,7 @@ function Skills(props) {
                 </h1>
             <div className='technologies'>
                 <SkillIcon name="react" Icon={FaReact} IconProps={{ className: "react w-8 h-8 sm:w-10 h-10 md:w-20 h-20 xl:w-24 h-24" }} />
-                <SkillIcon name="python" Icon={PythonIcon} IconProps={{ className: "python w-8 h-8 sm:w-10 h-10 md:w-20 h-20 xl:w-24 h-24" }} />
+                <SkillIcon name="python" custom={true} Icon={PythonIcon} IconProps={{ className: "python w-8 h-8 sm:w-10 h-10 md:w-20 h-20 xl:w-24 h-24" }} />
                 <SkillIcon name="js" Icon={FaJsSquare} IconProps={{ className: "js w-8 h-8 sm:w-10 h-10 md:w-20 h-20 xl:w-24 h-24" }} />
                 <SkillIcon name="css3" Icon={FaCss3Alt} IconProps={{ className: "css3 w-8 h-8 sm:w-10 h-10 md:w-20 h-20 xl:w-24 h-24" }} />
                 <SkillIcon name="tailwind" Icon={SiTailwindcss} IconProps={{ className: "tailwind w-8 h-8 sm:w-10 h-10 md:w-20 h-20 xl:w-24 h-24" }} />
