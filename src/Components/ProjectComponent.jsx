@@ -1,13 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import myLyfe from "../assets/myLyfe.png"
 import "../styles/projects.css"
 import mygoals from "../assets/mygoals.png"
-import { useGrid } from '../Contexts/GridContext';
+import { GridContext } from '../Contexts/GridContext';
 import { useNavigate } from "react-router-dom";
 
 function ProjectComponent(props) {
     const animation = props.gridAnimation;
-    const { columns, rows, toggled, setToggled, createGrid, resizeHandler, animateTiles } = useGrid();
+    const { columns, rows, toggled, setToggled, createGrid, resizeHandler, animateTiles } = useContext(GridContext);
     const navigate = useNavigate();
 
     const handleClick = () => {

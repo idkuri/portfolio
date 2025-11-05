@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useContext, useEffect, useState } from 'react';
 import "../styles/projects.css"
 import ProjectComponent from '../Components/ProjectComponent';
 import { SiCoursera } from 'react-icons/si';
@@ -7,12 +7,12 @@ import myLyfe_img from '../assets/mygoals.png'
 import snaptranslate from '../assets/snaptranslate.png'
 import fundsImg from '../assets/fund_holding_analyzer.png'
 import Parsight from "../assets/parsight.png"
-import { useGrid } from '../Contexts/GridContext';
+import { GridContext } from '../Contexts/GridContext';
 import logo from "../assets/icononly_transparent_nobuffer.png";
 
 const Projects = (props) => {
     const [resized, setResized] = useState(false);
-    const { columns, rows, toggled, setToggled, createGrid, resizeHandler, animateTiles } = useGrid();
+    const { columns, rows, toggled, setToggled, createGrid, resizeHandler, animateTiles } = useContext(GridContext);
     const [ parsightOverlay, setParsightOverlay ] = useState(false)
 
     const items = {

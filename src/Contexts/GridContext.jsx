@@ -3,10 +3,10 @@ import anime from "animejs";
 import "../styles/App.css"
 
 // Create context
-const GridContext = createContext();
+export const GridContext = createContext();
 
-// Custom hook to use the context
-export const useGrid = () => useContext(GridContext);
+// // Custom hook to use the context
+// export const useGrid = () => useContext(GridContext);
 
 // Provider component
 export const GridProvider = ({ children }) => {
@@ -43,8 +43,8 @@ export const GridProvider = ({ children }) => {
     useEffect(() => {
         const handlePageShow = (event) => {
             setToggled(true);
-            resizeHandler();
         };
+        resizeHandler();
     
         window.addEventListener("pageshow", handlePageShow);
     
