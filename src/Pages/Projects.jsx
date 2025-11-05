@@ -7,20 +7,40 @@ import myLyfe_img from '../assets/mygoals.png'
 import snaptranslate from '../assets/snaptranslate.png'
 import fundsImg from '../assets/fund_holding_analyzer.png'
 import Parsight from "../assets/parsight.png"
+import BluePrint from "../assets/gradient.png"
 import { GridContext } from '../Contexts/GridContext';
 import logo from "../assets/icononly_transparent_nobuffer.png";
+import DragHintCarousel from '../Components/SwipeIndicator';
 
 const Projects = (props) => {
     const [resized, setResized] = useState(false);
     const { columns, rows, toggled, setToggled, createGrid, resizeHandler, animateTiles } = useContext(GridContext);
     const [ parsightOverlay, setParsightOverlay ] = useState(false)
+    const [isMobile, setIsMobile] = useState(false);
 
     const items = {
         0: <ProjectComponent key={"project_1"} project_name={"Othello/Reversi"} project_img={reversi_img} project_link={"https://reversi.idkuri.com"} gridAnimation={true} delay={2000}></ProjectComponent>,
         1: <ProjectComponent key={"project_2"} project_name={"Parsight"} project_img={Parsight} project_link={"https://parsight.idkuri.com/"} onClick={()=> handleParsightAnimation()} delay={2000}></ProjectComponent>,
-        2: <ProjectComponent key={"project_3"} project_name={"SnapTranslate"} project_img={snaptranslate} project_link={"https://github.com/idkuri/SnapTranslate"}></ProjectComponent>,
-        3: <ProjectComponent key={"project_4"} project_name={"Fund Holdings Analyzer"} project_img={fundsImg} project_link={"https://prospect.idkuri.com"}></ProjectComponent>,
+        2: <ProjectComponent key={"project_3"} project_name={"BluePrint"} project_img={BluePrint} project_link={"https://gradient.idkuri.com"}></ProjectComponent>,
+        3: <ProjectComponent key={"project_4"} project_name={"SnapTranslate"} project_img={snaptranslate} project_link={"https://github.com/idkuri/SnapTranslate"}></ProjectComponent>,
+        4: <ProjectComponent key={"project_5"} project_name={"Fund Holdings Analyzer"} project_img={fundsImg} project_link={"https://prospect.idkuri.com"}></ProjectComponent>,
     }
+
+     useEffect(() => {
+        function checkMobile() {
+            if (window.innerWidth <= 500) {
+                setIsMobile(true)
+            }
+            else {
+                setIsMobile(false);
+            }
+        }
+
+        checkMobile();
+
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
     useEffect(() => {
         const carousel = document.getElementById("carousel");
@@ -286,7 +306,8 @@ const Projects = (props) => {
             // onTouchEnd={(e) => {handleMouseUp(e)}}
             onMouseMove={(e) => handleMouseMove(e)} 
             onMouseDown={(e) => {handleMouseDown(e)}} 
-            onMouseUp={(e) => {handleMouseUp(e)}}>
+            onMouseUp={(e) => {handleMouseUp(e)}}
+        >
             <h1 className='p_header'>
                 {`<Projects/>`}
             </h1>
@@ -316,9 +337,12 @@ const Projects = (props) => {
                     </div>
                 </>
             )}
-            <div className='carousel' id="carousel" data-mouse-down-at="0" data-prev-percentage={props.projectPos}>
+            <div className='carousel select-none no-drag' draggable={false} id="carousel" data-mouse-down-at="0" data-prev-percentage={props.projectPos}>
                 {renderProjects()}
             </div>
+            {!isMobile &&
+                <DragHintCarousel/>
+            }
         </div>
     );
 };

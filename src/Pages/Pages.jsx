@@ -75,7 +75,7 @@ function Pages(props) {
                 <Navbar currentSection={currentSection} />
                 <GridProvider>
                 <ParallaxProvider scrollAxis='vertical' scrollContainer={scrollEl}>
-                    <div className='pageContainer' ref={ref}>
+                    <div className='pageContainer select-none no-drag' ref={ref}>
                         <Parallax onProgressChange={handleHomepageProgress} speed={100}>
                             <section id="homepage" className="min-w-screen min-h-screen"> 
                                 <Homepage />

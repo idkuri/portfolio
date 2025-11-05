@@ -29,10 +29,10 @@ function ProjectComponent(props) {
 
     return (
         <div
-        	className="project_elem"
+        	className="project_elem select-none no-drag"
         	onClick={handleClick}
         >
-            <img className="project_background" src={props.project_img} alt={props.project_name} draggable={false}></img>
+            <img className="project_background select-none no-drag" src={props.project_img} alt={props.project_name} draggable={false}></img>
         </div>
     );
 }
