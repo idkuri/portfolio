@@ -17,14 +17,12 @@ export default function DragHintCarousel() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <ChevronLeft/>
             <motion.div
                 animate={{ x: [0, 30, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             >
                 <MousePointer2 size={22} strokeWidth={1.5} />
             </motion.div>
-            <ChevronRight/>
           </motion.div>
         )}
       </AnimatePresence>
