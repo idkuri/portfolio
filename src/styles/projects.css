@@ -121,6 +121,12 @@
         gap: 1.25rem;            /* gap-5 corresponds to 1.25rem in Tailwind */
 
     }
+    .project_elem:hover {
+        transform: scale(0.5);
+        box-shadow: 0 100px 100px rgba(0, 0, 0, 0.3);
+        margin-left: 50px;
+        margin-right: 50px;
+    }
 
     .project_elem {
         position: relative;
