@@ -4,12 +4,16 @@ import Typewriter from 'typewriter-effect';
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { FiMail } from "react-icons/fi"
 import { CursorContext } from '../Contexts/CursorContext';
+import DragHintCarousel from '../Components/SwipeIndicator';
 
 function Homepage(props) {
     const { mouseHover, setMouseHover } = useContext(CursorContext);
     const myName = "<Andrew/>"
     const [hoveredIndex, setHoveredIndex] = useState(new Set());
     const hoverTimeouts = useRef(new Map());
+    const [isMobile, setIsMobile] = useState(false);
+    const [hoveredOnce, setHoveredOnce] = useState(false);
+
     
     useEffect(() => {
         const wrapper = document.getElementById("home-wrapper");
@@ -21,10 +25,27 @@ function Homepage(props) {
         return () => clearTimeout(tid);
     }, [])
 
+    useEffect(() => {
+        function checkMobile() {
+            if (window.innerWidth <= 500) {
+                setIsMobile(true)
+            }
+            else {
+                setIsMobile(false);
+            }
+        }
+
+        checkMobile();
+
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
 
     const handleMouseEnter = (index) => {
         // Cancel any pending timeout for this index
         setMouseHover(true);
+        setHoveredOnce(true);
         if (hoverTimeouts.current.has(index)) {
             clearTimeout(hoverTimeouts.current.get(index));
             hoverTimeouts.current.delete(index);
@@ -74,12 +95,15 @@ function Homepage(props) {
 
     return (
         <div id="home-wrapper" className="home-wrapper">
-                <h1 className='name' id="intro">Hi, I'm</h1>
-                <div className="flex justify-center item-center w-full transition-all 0.5s">
-                    <h1 className='name' id="me">
-                        {renderName(myName)}
-                    </h1>
-                </div>
+            <h1 className='name' id="intro">Hi, I'm</h1>
+            <div className="flex justify-center item-center w-full transition-all 0.5s">
+                <h1 className='name' id="me">
+                    {!isMobile && !hoveredOnce &&
+                        <DragHintCarousel/>
+                    }
+                    {renderName(myName)}
+                </h1>
+            </div>
             <Typewriter className="typewriter"
                 options={{
                     strings: ["Fullstack Developer"],

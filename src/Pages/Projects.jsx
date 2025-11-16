@@ -340,9 +340,6 @@ const Projects = (props) => {
             <div className='carousel select-none no-drag' draggable={false} id="carousel" data-mouse-down-at="0" data-prev-percentage={props.projectPos}>
                 {renderProjects()}
             </div>
-            {!isMobile &&
-                <DragHintCarousel/>
-            }
         </div>
     );
 };
